@@ -1,9 +1,17 @@
-import Card from './card'
-import Header from './header'
-import Contexts from './context'
+import { CardForm } from './card'
+import Button from './button'
+import { HeaderUser } from './header'
+import Context from './context'
+import Loading from './loading'
+import TextInput from './text-input'
+import { BackgroundAuth }  from './background'
 
 export {
-  Card,
-  Header,
-  Contexts,
+  Button,
+  Context,
+  Loading,
+  CardForm,
+  TextInput,
+  HeaderUser,
+  BackgroundAuth,
 }

@@ -1,3 +1,5 @@
-import Card from './card.component'
+import CardForm from './card-form'
 
-export default Card
+export {
+  CardForm
+}

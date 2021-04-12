@@ -1,3 +1,3 @@
-import Card from './context.component'
+import Context from './context.component'
 
-export default Card
+export default Context
