@@ -3,13 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "eslint --fix ./src && next -p 8000 && next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "eslint --fix ./src && next start -p 8000"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "formik": "^2.2.6",
+    "moment": "^2.29.1",
     "next": "10.1.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.7.0",
+    "eslint-plugin-react": "^7.20.6"
   }
 }
