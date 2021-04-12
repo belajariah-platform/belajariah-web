@@ -1,3 +1,5 @@
-import Header  from './header.component'
+import HeaderUser  from './header-user'
 
-export default Header
+export {
+  HeaderUser
+}

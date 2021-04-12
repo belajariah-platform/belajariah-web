@@ -1,9 +1,9 @@
-import { Header } from '../components'
+import { HeaderUser } from '../components'
 
 const Index = () => {
   return (
     <div>
-      <Header/>
+      <HeaderUser />
     </div>
   )
 }
