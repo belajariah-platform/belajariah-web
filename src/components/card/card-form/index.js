@@ -1,3 +1,3 @@
-import Card from './card-form.component'
+import CardForm from './card-form.component'
 
-export default Card
+export default CardForm
