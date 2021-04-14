@@ -1,6 +1,5 @@
 import { Container, ContainerLogin, ContainerMain, ContainerLogoIcon } from './card-form.styled'
 import { Images } from '../../../assets'
-// import Image from 'next/image'
 
 const CardForm = () => {
   return(

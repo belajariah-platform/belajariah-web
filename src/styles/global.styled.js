@@ -6,7 +6,7 @@ export const WrapperContent = styled.div`
 `
 
 export const Title = styled.p`
-  font-size: ${FontSize.mediumLarge}px;
+  font-size: ${FontSize.extraLarge}px;
 `
 export const TitleBold = styled.div`
   font-weight: 600;
