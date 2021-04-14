@@ -1,12 +1,27 @@
-// pages/_app.js
-//hello
-// import { Header } from '../components'
+import { route } from 'next/dist/next-server/server/router'
+import { useRouter } from 'next/router'
 import '../assets/css/global.css'
 
 export default function MyApp({ Component, pageProps }) {
-  return (
-    // <Header>
-    <Component {...pageProps} />
-    // </Header>
-  )
+  const router = useRouter()
+  const path = router.asPath
+  const isDashboard = path.includes('/dashboard')
+
+  const Content = () => {
+    console.log('ok', path, isDashboard)
+    if (isDashboard) {
+      return (
+        <Component {...pageProps} />
+      )
+    } else {
+      router.push('/')
+      return (
+        <div>test</div>
+      )
+      // return (
+      //   <Component {...pageProps} />
+      // )
+    }
+  }
+  return <div><Content/></div>
 }
