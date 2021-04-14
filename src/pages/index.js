@@ -1,9 +1,10 @@
-import { HeaderUser } from '../components'
+import { CardForm } from '../components'
 
 const Index = () => {
   return (
     <div>
-      <HeaderUser />
+      {/* <HeaderUser /> */}
+      <CardForm />
     </div>
   )
 }
