@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Images } from '../../../assets'
 
 const Header = () => {
   return (
@@ -20,6 +21,7 @@ const Header = () => {
           </Link>
         </li>
       </ul>
+      <img src={Images.IconAccepted}/>
     </header>
   )
 }
