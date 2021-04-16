@@ -1,10 +1,11 @@
-import { CardForm } from '../components'
+import { Buttons } from '../components'
 
 const Index = () => {
   return (
     <div>
       {/* <HeaderUser /> */}
-      <CardForm />
+      {/* <CardForm /> */}
+      <Buttons />
     </div>
   )
 }

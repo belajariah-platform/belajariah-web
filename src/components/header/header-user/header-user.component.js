@@ -1,28 +1,27 @@
-import Link from 'next/link'
 import { Images } from '../../../assets'
+import {
+  Navbar,
+  LiNavbar,
+  UlNavbar,
+  IconNavbar,
+  ContainerNavbar,
+} from './header-user.styled'
 
 const Header = () => {
   return (
-    <header>
-      <ul>
-        <li>
-          <Link href='/'>
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/about'>
-            <a>About</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/login'>
-            <a>Login</a>
-          </Link>
-        </li>
-      </ul>
-      <img src={Images.IconAccepted}/>
-    </header>
+    <div>
+      <Navbar>
+        <ContainerNavbar>
+          <IconNavbar><img src={Images.BelajariahLogo} width={64} height={95} /></IconNavbar>
+          <UlNavbar>
+            <LiNavbar><a href='#'>Home</a></LiNavbar>
+            <LiNavbar><a href='#'>Home</a></LiNavbar>
+            <LiNavbar><a href='#'>Home</a></LiNavbar>
+            <LiNavbar><a href='#'>Home</a></LiNavbar>
+          </UlNavbar>
+        </ContainerNavbar>
+      </Navbar>
+    </div>
   )
 }
 

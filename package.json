@@ -8,6 +8,7 @@
     "start": "eslint --fix ./src && next start -p 8000"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "antd": "^4.15.1",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
