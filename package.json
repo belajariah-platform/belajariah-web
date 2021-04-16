@@ -8,6 +8,7 @@
     "start": "eslint --fix ./src && next start -p 8000"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "@zeit/next-css": "^1.0.1",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -19,6 +20,7 @@
     "next-images": "^1.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-input-mask": "^3.0.0-alpha.2",
     "react-redux": "^7.2.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
