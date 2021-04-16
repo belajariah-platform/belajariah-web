@@ -1,4 +1,9 @@
-import { Container, ContainerLogin, ContainerMain, ContainerLogoIcon } from './card-form.styled'
+import {
+  Container,
+  ContainerMain,
+  ContainerLogin,
+  ContainerLogoIcon
+} from './card-form.styled'
 import { Images } from '../../../assets'
 
 const CardForm = () => {
