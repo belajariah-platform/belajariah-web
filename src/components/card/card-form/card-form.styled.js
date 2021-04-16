@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+//
 export const Container = styled.div`
     display: flex;
     min-height: 100vh;
@@ -7,13 +7,16 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;`
+
 export const ContainerMain = styled.main`
     flex: 1;
     display: flex;
     padding: 5rem 0;
     align-items: center;
     flex-direction: column;
-    justify-content: center;`
+    justify-content: center;
+`
+
 export const ContainerLogin = styled.div`
     width: 430px;
     height: 500px;

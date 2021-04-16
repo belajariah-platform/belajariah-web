@@ -74,7 +74,7 @@
                 "switches": "never"
             }
         ],
-        "no-unused-vars": "error",
+        "no-unused-vars": "off",
         "no-constant-condition": "off"
     },
     "globals": {

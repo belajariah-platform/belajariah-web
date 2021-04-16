@@ -1,27 +1,37 @@
+import Link from 'next/link'
+import { Title } from '../../../styles/global.styled'
 import { Images } from '../../../assets'
-import {
-  Navbar,
-  LiNavbar,
-  UlNavbar,
-  IconNavbar,
-  ContainerNavbar,
-} from './header-user.styled'
 
 const Header = () => {
   return (
-    <div>
-      <Navbar>
-        <ContainerNavbar>
-          <IconNavbar><img src={Images.BelajariahLogo} width={64} height={95} /></IconNavbar>
-          <UlNavbar>
-            <LiNavbar><a href='#'>Home</a></LiNavbar>
-            <LiNavbar><a href='#'>Home</a></LiNavbar>
-            <LiNavbar><a href='#'>Home</a></LiNavbar>
-            <LiNavbar><a href='#'>Home</a></LiNavbar>
-          </UlNavbar>
-        </ContainerNavbar>
-      </Navbar>
-    </div>
+    <header>
+      <Title className='one'>hello</Title>
+      <ul>
+        <li>
+          <Link href='/'>
+            <p className='one'>Home</p>
+          </Link>
+        </li>
+        <li>
+          <Link href='/about'>
+            <p className='one'> About</p>
+          </Link>
+        </li>
+        <li>
+          <Link href='/login'>
+            <p className='one'>Login</p>
+          </Link>
+        </li>
+      </ul>
+      <img src={Images.IconAccepted}/>
+
+      <style jsx>{`  
+        .one {
+          text-align : 'center';
+          font-family : 'Lato';
+        }
+      `}</style>
+    </header>
   )
 }
 
