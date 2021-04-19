@@ -17,10 +17,10 @@ export default function MyApp({ Component, pageProps }) {
   //     return (
   //       <div>test</div>
   //     )
-       return (
-         <Component {...pageProps} />
-       )
-    }
+  return (
+    <Component {...pageProps} />
+  )
+}
 //   }
 //   return <div><Content/></div>
 // }
