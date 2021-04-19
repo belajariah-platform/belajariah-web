@@ -1,10 +1,15 @@
-import { Container, ContainerLogin, ContainerMain, ContainerLogoIcon } from './card-form.styled'
+import {
+  Container,
+  ContainerMain,
+  ContainerLogin,
+  ContainerLogoIcon
+} from './card-form.styled'
 import { Images } from '../../../assets'
 import { Login } from '../../../containers'
 
 const CardForm = (props) => {
   return(
-    <Container >
+    <Container>
       <ContainerMain>
         <ContainerLogin>
           <ContainerLogoIcon>

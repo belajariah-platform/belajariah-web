@@ -11,6 +11,18 @@
     justify-content: center;
 }
 
+.containerTextRegister {
+    display: flex;
+    margin: 2px 0 0;
+    justify-content: center;
+}
+
+.containerTextRecover {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 0;
+}
+
 .bgLoading {
     background-image: url('../images/BgAuthLoading.png');
 }
@@ -29,31 +41,30 @@
 
 .text {
     color: white;
-    font-family: 'Chewy';
     font-size: 20px;
+    font-family: 'Chewy';
 }
 
 .loader {
-    animation: load-effect 2s infinite linear;
-    text-indent: -9999px;
-    position: relative;
     width: 70px;
     height: 70px;
-    box-shadow: inset 0 0 0 7px  rgba(255,255,255,0.2); /*Set the internal shadow to be white and transparent with a width of 15px*/
+    position: relative;
     border-radius: 50%;
-    /*Use gradient to make tail effect*/
+    text-indent: -9999px;
+    animation: load-effect 2s infinite linear;
+    box-shadow: inset 0 0 0 7px  rgba(255,255,255,0.2);
     background: linear-gradient(to right,#ffffff 10%,rgba(255,255,255,0) 50%);
   }
   
-/*Use pseudo elements to cover the gradient in the middle*/
+
 .loader:after{
-    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 56px;
     content: '';
-    width:56px;
-    height:56px;
+    height: 56px;
+    position: absolute;
     border-radius: 50%;
-    left:7px;
-    top:7px;
     background: url('../images/BgAuthLoading.png');
 }
 
@@ -64,4 +75,13 @@
     100%{
         transform: rotate(360deg);
     }
+}
+
+.textRegular {
+    font-size: 12px;
+}
+
+.textLink {
+    font-size: 12px;
+    color: #A734C3;
 }

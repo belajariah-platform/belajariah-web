@@ -1,9 +1,10 @@
-import { CardForm } from './card'
 import Buttons from './button'
-import { HeaderUser } from './header'
+import { AlertForm } from './alert'
 import Context from './context'
 import Loading from './loading'
+import { CardForm } from './card'
 import TextInput from './text-input'
+import { HeaderUser } from './header'
 import { BackgroundAuth }  from './background'
 
 export {
@@ -11,6 +12,7 @@ export {
   Context,
   Loading,
   CardForm,
+  AlertForm,
   TextInput,
   HeaderUser,
   BackgroundAuth,

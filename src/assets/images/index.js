@@ -1,4 +1,5 @@
 export default {
+  IconGoogle: require('./IconGoogle.svg'),
   BgAuthLogin: require('./BgAuthLogin.png'),
   BgAuthLoading: require('./BgAuthLoading.png'),
   BgAuthRecover: require('./BgAuthRecover.png'),
@@ -8,6 +9,7 @@ export default {
   IconShowPassword: require('./IconShowPassword.svg'),
   IconHidePassword: require('./IconHidePassword.svg'),
   IconEmailInvalid: require('./IconEmailInvalid.svg'),
+  BackgroundHeading: require('./BackgroundHeading.png'),
   IconEmailRequired: require('./IconEmailRequired.svg'),
   IconEmailRegistered: require('./IconEmailRegistered.svg'),
 }

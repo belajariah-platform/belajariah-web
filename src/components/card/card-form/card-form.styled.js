@@ -22,7 +22,7 @@ export const ContainerLogin = styled.div`
     height: auto;
     border-radius: 20px;
     background: #FFFFFF;
-    padding: 9% 10% 9% 10%;
+    padding: 7% 6% 4%;
     box-shadow: 0px 20px 32px #8A1DA6;`
 export const ContainerLogoIcon = styled.div`
     width: 90px;
