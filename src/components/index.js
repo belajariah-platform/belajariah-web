@@ -1,5 +1,5 @@
 import Buttons from './button'
-import {AlertForm} from './alert'
+import { AlertForm } from './alert'
 import Context from './context'
 import Loading from './loading'
 import { CardForm } from './card'
