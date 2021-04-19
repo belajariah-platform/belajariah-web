@@ -1,7 +1,11 @@
 import {
-  Login
+  Login,
+  Register,
+  Recovery,
 } from './auth'
 
 export {
-  Login
+  Login,
+  Register,
+  Recovery,
 }

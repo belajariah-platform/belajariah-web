@@ -1,11 +1,12 @@
 import { CardForm } from '../components'
-import { Login } from '../containers'
+import { Login, Register } from '../containers'
 
 const Index = () => {
   return (
     <div>
       {/* <HeaderUser /> */}
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </div>
   )
 }

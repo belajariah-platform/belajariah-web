@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { Images } from '../../../assets'
-import { Logo, ContainerGoogle } from './auth-login.styled'
 import styles from '../../../assets/css/auth.module.css'
-import { AlertForm, BackgroundAuth, CardForm, TextInput, Buttons } from '../../../components'
+import { Logo, DividerText, ContainerGoogle } from './auth-login.styled'
+import { AlertForm, BackgroundAuth, CardForm, TextInput, Buttons, Loading } from '../../../components'
 
 const Login = (props) => {
   const [loading, setLoading] = useState(true)
@@ -20,7 +20,7 @@ const Login = (props) => {
     <>
       {loading ? (
         <>
-          <BackgroundAuth name='loading' />
+          <Loading type='page' />
         </>
       ) : (
         <>
@@ -32,6 +32,7 @@ const Login = (props) => {
                   <p>Masuk dengan Google</p>
                 </ContainerGoogle>
               </Buttons>
+              <DividerText/>
               <TextInput title='Alamat Email' type='email'/>
               <TextInput title='Password' type='password'/>
               <div className={styles.containerTextRecover}>
@@ -46,7 +47,7 @@ const Login = (props) => {
               <div className={styles.containerTextRegister}>
                 <p className={styles.textRegular}>Tidak Memiliki akun?
                   {' '}
-                  <Link href='/'>
+                  <Link href='/src/containers/auth/auth-register/auth-register.container.js'>
                     <a className={styles.textLink}>Daftar Sekarang</a>
                   </Link>
                 </p>

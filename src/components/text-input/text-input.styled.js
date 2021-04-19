@@ -4,9 +4,16 @@ const Title = styled.p`
   font-size: 12px;
 `
 
-const FlexRow = styled.div`
+const ContainerTitle = styled.div`
   display: flex;
   margin: -4px 0px -10px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content:space-between;
+`
+
+const ContainerPhone = styled.div`
+  display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content:space-between;
@@ -24,7 +31,8 @@ const InputIcon = styled.img`
 `
 export {
   Title,
-  FlexRow,
   ErrorMsg,
   InputIcon,
+  ContainerPhone,
+  ContainerTitle,
 }
