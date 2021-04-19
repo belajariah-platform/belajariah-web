@@ -1,5 +1,7 @@
-import Auth from './auth'
+import {
+  Login
+} from './auth'
 
 export {
-  Auth
+  Login
 }

@@ -3,20 +3,21 @@ import styled, { css } from 'styled-components'
 export const ButtonLogin = styled.button`
     width: 50px;
     height: 46px;
+    width: 100%;
+    height: 36px;
     border: none;
-    color: #fff;
     line-height: 2;
     cursor: pointer;
     padding: 0% 20%;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     align-items: center;
     justify-content: center;
     border-radius: 80px;
     align-items: center;
-    background-color: #A734C3;
-    ${(p) =>
-  !p.disable &&
+    color: ${props => props.color ? props.color : '#fff'};
+    background-color: ${props => props.backgroundColor ? props.backgroundColor :  '#A734C3'};
+    ${
     css`
     &:hover {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),

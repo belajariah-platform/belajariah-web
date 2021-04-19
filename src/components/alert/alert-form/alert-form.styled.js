@@ -27,4 +27,4 @@ export const IconAlert = styled.p`
 export const TxtAlert = styled.p`
     margin: 0px;
     color: #CD5454;
-    font-size: 14px;`
+    font-size: 12px;`
