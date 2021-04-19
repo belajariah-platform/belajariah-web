@@ -1,26 +1,28 @@
-import { useRouter } from 'next/router'
 import '../assets/css/global.css'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
-export default function MyApp({ Component, pageProps }) {
-  // const router = useRouter()
-  // const path = router.asPath
-  // const isDashboard = path.includes('/dashboard')
+const Route = ({ children }) => {
+  const isLogin = false
+  const router = useRouter()
 
-  // const Content = () => {
-  //   console.log('ok', path, isDashboard)
-  //   if (isDashboard) {
-  //     return (
-  //       <Component {...pageProps} />
-  //     )
-  //   } else {
-  //     router.push('/')
-  //     return (
-  //       <div>test</div>
-  //     )
+  useEffect(() => {
+    if (!isLogin) {
+      router.push('/')
+    }
+  }, [])
+
   return (
-    <Component {...pageProps} />
+    <div>
+      <div>{children}</div>
+    </div>
   )
 }
-//   }
-//   return <div><Content/></div>
-// }
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <Route>
+      <Component {...pageProps} />
+    </Route>
+  )
+}
