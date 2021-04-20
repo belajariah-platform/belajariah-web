@@ -3,27 +3,24 @@ import { TextField } from '@material-ui/core'
 
 import { Images } from '../../assets'
 import styles from '../../assets/css/auth.module.css'
-import { Title, FlexRow, InputIcon, ErrorMsg } from './text-input.styled'
-
-/*
-  usage:
-  type = email to input email
-  type = password to input password
-  type = phone to input phone number
-*/
+import { Title, InputIcon, ErrorMsg, ContainerPhone, ContainerTitle } from './text-input.styled'
 
 const TextInput = (props) => {
   const [showPassword, setShowPassword] = useState(false)
-  const errorIcon = props.error && props.error =='required' ? (
+  const errorIcon = props.status && props.status == 'required' ? (
     <InputIcon src={Images.IconEmailRequired}/>
   ) : (
-    props.error && props.error =='invalid' ? (
+    props.status && props.status == 'invalid' ? (
       <InputIcon src={Images.IconEmailInvalid}/>
     ) : (
-      props.error && props.error =='registered' ? (
+      props.status && props.status == 'registered' ? (
         <InputIcon src={Images.IconEmailRegistered} />
       ) : (
-        <span/>
+        props.status && props.status == 'unknown' ? (
+          <InputIcon src={Images.IconEmailRegistered} />
+        ) : (
+          <span/>
+        )
       )
     )
   )
@@ -34,32 +31,38 @@ const TextInput = (props) => {
 
   return (
     <>
-      <FlexRow>
+      <ContainerTitle>
         <Title>{props.title}</Title>
-        {props.error && props.error == 'required' ? (
+        {props.status && props.status == 'required' ? (
           <ErrorMsg>Harap Masukan Alamat Email anda.</ErrorMsg>
         ) : (
-          props.error && props.error == 'invalid' ? (
+          props.status && props.status == 'invalid' ? (
             <ErrorMsg>Email yang anda masukan tidak valid.</ErrorMsg>
           ) : (
-            props.error && props.error == 'registered' && (
+            props.status && props.status == 'registered' ? (
               <ErrorMsg>Email ini telah terdaftar.</ErrorMsg>
+            ) : (
+              props.status && props.status == 'unknown' && (
+                <ErrorMsg>Email ini tidak terdaftar</ErrorMsg>
+              )
             )
           )
         )
         }
-      </FlexRow>
+      </ContainerTitle>
       {props.type == 'email' ? (
         <TextField
           size='small'
           variant='outlined'
+          value={props.value}
+          disable={props.disable}
           style={{ width : '100%' }}
           InputProps={{
             endAdornment: errorIcon,
           }}
           inputProps={{
             style: {
-              fontSize: 14
+              fontSize: 12
             }
           }} />
       ) : props.type == 'password' ? (
@@ -84,7 +87,7 @@ const TextInput = (props) => {
           }}
         />
       ) : props.type == 'phone' ? (
-        <FlexRow>
+        <ContainerPhone>
           <TextField
             disabled
             size='small'
@@ -105,7 +108,7 @@ const TextInput = (props) => {
                 fontSize: 14
               }
             }}/>
-        </FlexRow>
+        </ContainerPhone>
       ) : (
         <TextField
           size='small'
