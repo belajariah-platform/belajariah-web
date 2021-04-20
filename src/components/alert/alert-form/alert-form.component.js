@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import {
   TxtAlert,
   IconAlert,
@@ -5,15 +7,21 @@ import {
   ViewcontainerAlert,
 } from './alert-form.styled'
 
-const AlertForm = () => {
+const AlertForm = (props) => {
   return(
-    <ContainerAlert>
+    <ContainerAlert {...props}>
       <IconAlert>i</IconAlert>
       <ViewcontainerAlert>
-        <TxtAlert><strong>Maaf!</strong> Alamat Email atau Kata sandi<br></br>yang anda masukan tidak valid</TxtAlert>
+        <TxtAlert><strong>{props.success ? 'Berhasil' : 'Maaf!'}</strong> {props.title}</TxtAlert>
       </ViewcontainerAlert>
     </ContainerAlert>
   )
+}
+
+AlertForm.propTypes = {
+  title : PropTypes.string,
+  success : PropTypes.bool,
+  width : PropTypes.string,
 }
 
 export default AlertForm
