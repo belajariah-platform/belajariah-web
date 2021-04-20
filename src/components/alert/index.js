@@ -1,3 +1,3 @@
 import AlertForm from './alert-form'
 
-export {AlertForm}
+export { AlertForm }
