@@ -14,9 +14,9 @@ const BackgroundAuth = (props) => {
         {props.children}
       </div>
     )
-  case 'recover':
+  case 'recovery':
     return (
-      <div className={`${styles.container} ${styles.bgRecover}`}>
+      <div className={`${styles.container} ${styles.bgRecovery}`}>
         {props.children}
       </div>
     )

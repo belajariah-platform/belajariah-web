@@ -5,25 +5,22 @@ import { Images } from '../../assets'
 import styles from '../../assets/css/auth.module.css'
 import { Title, InputIcon, ErrorMsg, ContainerPhone, ContainerTitle } from './text-input.styled'
 
-/*
-  usage:
-  type = email to input email
-  type = password to input password
-  type = phone to input phone number
-*/
-
 const TextInput = (props) => {
   const [showPassword, setShowPassword] = useState(false)
-  const errorIcon = props.status && props.status =='required' ? (
+  const errorIcon = props.status && props.status == 'required' ? (
     <InputIcon src={Images.IconEmailRequired}/>
   ) : (
-    props.status && props.status =='invalid' ? (
+    props.status && props.status == 'invalid' ? (
       <InputIcon src={Images.IconEmailInvalid}/>
     ) : (
-      props.status && props.status =='registered' ? (
+      props.status && props.status == 'registered' ? (
         <InputIcon src={Images.IconEmailRegistered} />
       ) : (
-        <span/>
+        props.status && props.status == 'unknown' ? (
+          <InputIcon src={Images.IconEmailRegistered} />
+        ) : (
+          <span/>
+        )
       )
     )
   )
@@ -42,8 +39,12 @@ const TextInput = (props) => {
           props.status && props.status == 'invalid' ? (
             <ErrorMsg>Email yang anda masukan tidak valid.</ErrorMsg>
           ) : (
-            props.status && props.status == 'registered' && (
+            props.status && props.status == 'registered' ? (
               <ErrorMsg>Email ini telah terdaftar.</ErrorMsg>
+            ) : (
+              props.status && props.status == 'unknown' && (
+                <ErrorMsg>Email ini tidak terdaftar</ErrorMsg>
+              )
             )
           )
         )
@@ -53,13 +54,15 @@ const TextInput = (props) => {
         <TextField
           size='small'
           variant='outlined'
+          value={props.value}
+          disable={props.disable}
           style={{ width : '100%' }}
           InputProps={{
             endAdornment: errorIcon,
           }}
           inputProps={{
             style: {
-              fontSize: 14
+              fontSize: 12
             }
           }} />
       ) : props.type == 'password' ? (

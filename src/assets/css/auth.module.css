@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.containerTextRecover {
+.containerTextRecovery {
     display: flex;
     margin: 16px 0;
     justify-content: flex-end;
@@ -37,7 +37,7 @@
     background-image: url('../images/BgAuthLogin.png');
 }
 
-.bgRecover {
+.bgRecovery {
     background-image: url('../images/BgAuthRecover.png');
 }
 

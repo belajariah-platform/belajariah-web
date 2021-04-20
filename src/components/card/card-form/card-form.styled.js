@@ -18,7 +18,7 @@ export const ContainerMain = styled.main`
 `
 
 export const ContainerLogin = styled.div`
-    width: 430px;
+    width: ${props => props.big ? '520px' : '430px'};
     height: auto;
     border-radius: 20px;
     background: #FFFFFF;

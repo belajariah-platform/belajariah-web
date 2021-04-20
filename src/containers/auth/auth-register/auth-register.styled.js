@@ -10,6 +10,25 @@ const Logo = styled.img`
  height: 24px;
  margin-right: 8px;
 `
+
+const ImageMail = styled.img`
+ width: 256px;
+ height: 256px;
+ margin-bottom: -8px;
+`
+
+const Title = styled.p`
+color: #ffffff;
+font-size: 20px;
+font-weight: bold;
+margin: -2px 0;
+`
+
+const Subtitle = styled.p`
+color: #ffffff;
+font-size: 12px;
+`
+
 const ContainerGoogle = styled.div`
  display: flex;
  margin-top: -6px;
@@ -60,6 +79,9 @@ const DividerText = styled.hr`
 export {
   Gap,
   Logo,
+  Title,
+  Subtitle,
+  ImageMail,
   DividerText,
   ContainerButton,
   ContainerGoogle,
