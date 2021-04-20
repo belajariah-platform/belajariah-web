@@ -18,11 +18,11 @@ export const ContainerMain = styled.main`
 `
 
 export const ContainerLogin = styled.div`
-    width: 430px;
+    width: ${props => props.big ? '520px' : '430px'};
     height: auto;
     border-radius: 20px;
     background: #FFFFFF;
-    padding: 7% 6% 4%;
+    padding: 9% 6% 0px;
     box-shadow: 0px 20px 32px #8A1DA6;`
 export const ContainerLogoIcon = styled.div`
     width: 90px;
