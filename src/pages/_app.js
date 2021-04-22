@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 const Route = ({ children }) => {
-  const isLogin = false
+  const isLogin = true
   const router = useRouter()
 
   useEffect(() => {

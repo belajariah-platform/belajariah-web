@@ -20,8 +20,9 @@ const AlertForm = (props) => {
 
 AlertForm.propTypes = {
   title : PropTypes.string,
-  success : PropTypes.bool,
   width : PropTypes.string,
+  success : PropTypes.bool,
+  noMargin : PropTypes.bool,
 }
 
 export default AlertForm

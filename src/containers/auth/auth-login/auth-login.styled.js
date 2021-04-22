@@ -15,33 +15,32 @@ const ContainerGoogle = styled.div`
 `
 
 const DividerText = styled.hr`
+ border: 0;
+ outline: 0;
+ color: black;
+ opacity: 0.8;
+ height: 1.2em;
  line-height: 1em;
  position: relative;
- outline: 0;
- border: 0;
- color: black;
  text-align: center;
- height: 1.2em;
  margin: 12px 0 2px;
- opacity: 0.8;
  &:before {
-   content: '';
-   background: black;
-   position: absolute;
    left: 0;
    top: 50%;
    width: 100%;
    height: 1px;
+   content: '';
+   background: black;
+   position: absolute;
  }
  &:after {
+   color: #000;
    content: 'atau';
-   position: relative;
-   display: inline-block;
-   color: black;
+   font-size: 12px;
    padding: 0 2.5em;
    line-height: 1.5em;
-   font-size: 12px;
-   color: #000;
+   position: relative;
+   display: inline-block;
    background-color: #fcfcfa;
  }
 `
