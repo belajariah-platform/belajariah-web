@@ -1,5 +1,8 @@
+import axios from 'axios'
+import * as Yup from 'yup'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useFormik } from 'formik'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 
 import { Images } from '../../../assets'
 import styles from '../../../assets/css/auth.module.css'
@@ -27,77 +30,113 @@ import {
 
 const Recovery = (props) => {
   const data = {
-    email : 'belajariah20@gmail.com',
+    email: 'm_ridhoputra@yahoo.com',
   }
-  const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(true)
-  const [linkClicked, setLinkClicked] = useState(false)
+  const [linkClicked, setLinkClicked] = useState(true)
   const [loadingButton, setLoadingButton] = useState(false)
   const [submit, setSubmit] = useState({
-    email : false,
-    reset : false,
+    email: false,
+    reset: false,
   })
 
-  const FormEmail = () => {
-    return(
-      <ContainerForm>
-        <TitleCard>Lupa Kata Sandi</TitleCard>
-        <SubtitleCard>Untuk mengatur ulang kata sandi Anda, masukkan <TextPurple>alamat email</TextPurple> akun Anda</SubtitleCard>
-        <TextInput title='Alamat Email' type='email' status={status}/>
-        <Gap />
-        <Buttons onClick={() => setLoadingButton(true)}>
-          <ContainerButton>
-            <p>Submit</p>
-            {loadingButton && (
-              <Loading type='button' />
-            )}
-            {loadingButton && (
-              setTimeout(() => {
-                setLoadingButton(false),
-                setSubmit(s => ({ ...s, email : true }))
-              }, 2000),
-              clearTimeout()
-            )}
-          </ContainerButton>
-        </Buttons>
-      </ContainerForm>
-    )
-  }
+  const EmailSubmit = useFormik({
+    initialValues: {
+      Email : '',
+    },
+    validationSchema: Yup.object({
+      Email: Yup.string()
+        .email('invalid')
+        .required('emailrequired'),
+    }),
+    onSubmit: async (values, form) => {
+      const body = {
+        'Email' : values.Email,
+      }
 
-  const FormReset = () => {
-    return(
-      <ContainerForm>
-        <TitleCard>Reset Kata Sandi</TitleCard>
-        <TextInput title='Alamat Email' type='email' disable={true} value={data.email}/>
-        <TextInput title='Password Baru' type='password'/>
-        <TextInput title='Konfirmasi Password' type='password'/>
-        <Gap />
-        <Buttons onClick={() => setLoadingButton(true)}>
-          <ContainerButton>
-            <p>Reset Password</p>
-            {loadingButton && (
-              <Loading type='button' />
-            )}
-            {loadingButton && (
-              setTimeout(() => {
-                setLoadingButton(false),
-                setSubmit(s => ({ ...s, reset : true }))
-              }, 2000),
-              clearTimeout()
-            )}
-          </ContainerButton>
-        </Buttons>
-      </ContainerForm>
-    )
-  }
+      try {
+        console.log(values)
+        setLoadingButton(true)
+        const response = await axios.put('http://dev.belajariah.com:3004/reset_verification', body)
+        console.log(response)
+
+        if(response.data.result) {
+          alert('isi data email success')
+          form.resetForm()
+          setSubmit(s => ({ ...s, email : true }))
+        } else {
+          alert('gagal')
+        }
+
+        setLoadingButton(false)
+      } catch(error) {
+        setLoadingButton(false)
+        return error
+      }
+    },
+  })
+
+  const FormSubmit = useFormik({
+    initialValues: {
+      Password: '',
+      Confirm_Password: '',
+    },
+    validationSchema: Yup.object({
+      Password: Yup.string()
+        .min(8, 'min8')
+        .required('passrequired'),
+      Confirm_Password: Yup.string()
+        .oneOf([Yup.ref('Password')], 'passmatch')
+        .required('passrequired'),
+    }),
+    onSubmit: async (values, form) => {
+      const body = {
+        'Email' : data.email,
+        'Password' : values.Password,
+      }
+
+      try {
+        console.log(values)
+        setLoadingButton(true)
+        const response = await axios.put('http://dev.belajariah.com:3004/change_password_public', body)
+        console.log(response)
+
+        if(response.data.result) {
+          alert('ganti password success')
+          form.resetForm()
+          setSubmit(s => ({ ...s, reset : true }))
+        } else {
+          alert('gagal')
+        }
+
+        setLoadingButton(false)
+      } catch(error) {
+        setLoadingButton(false)
+        return error
+      }
+    },
+  })
 
   const CardEmail = () => {
-    return(
+    return (
       <BackgroundAuth name='recovery'>
         <CardForm big>
           <ContainerRecovery>
-            <ImageForgotPass src={Images.ILForgotPass}/>
-            <FormEmail />
+            <ImageForgotPass src={Images.ILForgotPass} />
+            <ContainerForm>
+              <TitleCard>Lupa Kata Sandi</TitleCard>
+              <SubtitleCard>Untuk mengatur ulang kata sandi Anda, masukkan <TextPurple>alamat email</TextPurple> akun Anda</SubtitleCard>
+              <TextInput title='Alamat Email' name='Email' form={EmailSubmit}/>
+              <Gap />
+              <Buttons onClick={EmailSubmit.handleSubmit}>
+                <ContainerButton>
+                  <p>Submit</p>
+                  {loadingButton && (
+                    <Loading type='button' />
+                  )}
+                </ContainerButton>
+              </Buttons>
+            </ContainerForm>
           </ContainerRecovery>
         </CardForm>
       </BackgroundAuth>
@@ -105,12 +144,26 @@ const Recovery = (props) => {
   }
 
   const CardReset = () => {
-    return(
+    return (
       <BackgroundAuth name='recovery'>
         <CardForm big>
           <ContainerRecovery>
-            <ImageForgotPass src={Images.ILForgotPass}/>
-            <FormReset />
+            <ImageForgotPass src={Images.ILForgotPass} />
+            <ContainerForm>
+              <TitleCard>Reset Kata Sandi</TitleCard>
+              <TextInput title='Alamat Email' name='Email' disabled={true} value={data.email} />
+              <TextInput title='Password Baru' name='Password' form={FormSubmit}/>
+              <TextInput title='Konfirmasi Password' name='Confirm_Password' form={FormSubmit}/>
+              <Gap />
+              <Buttons onClick={FormSubmit.handleSubmit}>
+                <ContainerButton>
+                  <p>Reset Password</p>
+                  {loadingButton && (
+                    <Loading type='button' />
+                  )}
+                </ContainerButton>
+              </Buttons>
+            </ContainerForm>
           </ContainerRecovery>
         </CardForm>
       </BackgroundAuth>
@@ -118,7 +171,7 @@ const Recovery = (props) => {
   }
 
   const FormEmailSuccess = () => {
-    return(
+    return (
       <BackgroundAuth name='register'>
         <Title>Tautan Anda Berhasil</Title>
         <Title>Terkirim</Title>
@@ -145,7 +198,6 @@ const Recovery = (props) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-      console.log(loading)
     }, 2000)
   }, [])
 
@@ -157,13 +209,13 @@ const Recovery = (props) => {
         submit.reset ? (
           <FormResetSuccess />
         ) : (
-          <CardReset />
+          CardReset()
         )
       ) : (
         submit.email ? (
           <FormEmailSuccess />
         ) : (
-          <CardEmail />
+          CardEmail()
         )
       )
     )

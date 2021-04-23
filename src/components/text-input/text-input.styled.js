@@ -6,9 +6,9 @@ const Title = styled.p`
 
 const ContainerTitle = styled.div`
   display: flex;
-  margin: -4px 0px -10px;
   flex-direction: row;
   align-items: flex-end;
+  margin: -4px 0px -10px;
   justify-content:space-between;
 `
 
@@ -20,9 +20,9 @@ const ContainerPhone = styled.div`
 `
 
 const ErrorMsg = styled.p`
-  margin-bottom: 12px;
   color: #CD5454;
   font-size: 10px;
+  margin-bottom: 12px;
 `
 const InputIcon = styled.img`
   width: 16px;
