@@ -2,7 +2,7 @@
   display: flex;
   padding: 0px 10px;
   text-align: center;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 30px 0px 0px;
   justify-content: space-between;
 }
 
@@ -71,7 +71,7 @@
 .PriceClassNew p {
   margin: 0px;
   font-size: 18px;
-  color: #FF6A6A;
+  color: #ff6a6a;
   font-weight: 700;
 }
 
@@ -86,16 +86,15 @@
   align-items: center;
   border-radius: 25px;
   margin: 0px 15px 0px 0px;
-  background-color: #FCF1FF;
+  background-color: #fcf1ff;
 }
 
 .CategoryView p {
   font-size: 14px;
   font-weight: 500;
-  color: #BC3DDC;
+  color: #bc3ddc;
   margin: 0px 0px 0px 10px;
 }
-
 
 .Benefit {
   text-align: center;
@@ -153,7 +152,7 @@
 }
 
 .TitleContainerReview strong {
-  color: #951CB3;
+  color: #951cb3;
 }
 
 .TitleStory {
@@ -213,11 +212,11 @@
   text-align: center;
   border-radius: 40px;
   margin: 0px 0px 0px 0px;
-  background-color: #FF8E26;
-  box-shadow: 0px 10px 20px #7F1998;
+  background-color: #ff8e26;
+  box-shadow: 0px 10px 20px #7f1998;
 }
 
-.ButtonClass{
+.ButtonClass {
   text-align: center;
   margin: 20px 0px 0px 0px;
 }
@@ -318,7 +317,6 @@
 }
 
 @media (max-width: 320px) {
-
   .ViewBenefit {
     display: contents;
   }
@@ -346,10 +344,9 @@
   .ViewFooter {
     display: contents;
   }
-} 
+}
 
 @media (max-width: 768px) {
-
   .ViewBenefit {
     display: contents;
   }
