@@ -1,29 +1,26 @@
-import styled from 'styled-components'
+import { Images } from '../../../assets'
+import styled, { css } from 'styled-components'
 
-export const Navbar = styled.nav`
-    top: 0;
-    z-index: 3;
-    width: 100%;
-    margin: 0 auto;
-    position: fixed;`
-export const ContainerNavbar = styled.div`
-    margin: 0 auto;
-    padding: 0 2em;
-    max-width: 60em;
-    min-width: 45em;`
-export const IconNavbar = styled.div`
-    font-size: 2em;
-    font-weight: 700;
-    padding-top: .7em;
-    display: inline-block;
-    text-transform: uppercase;`
-export const UlNavbar = styled.ul`
-    margin: 0;
-    padding: 0;
-    float: right;
-    list-style-type: none;`
-export const LiNavbar = styled.li `
-    padding: 2em;
-    text-align: center;
-    transition: all .2s;
-    display: inline-block;`
+export const SearchInput = styled.input`
+    width: 100px;
+    font-size: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-repeat: no-repeat;
+    padding: 10px 20px 10px 40px;
+    background-color: transparent;
+    background-position: 10px 10px; 
+    transition: width 0.4s ease-in-out;
+    -webkit-transition: width 0.4s ease-in-out;
+    background-image: url(${Images.IconSearch});
+    ${
+    css`
+    &:active {
+        width: 100%;
+        }
+    &:focus {
+        width: 100%;
+        outline: none;
+        }
+    `}`
