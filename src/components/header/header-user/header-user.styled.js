@@ -1,6 +1,13 @@
 import { Images } from '../../../assets'
 import styled, { css } from 'styled-components'
 
+export const ViewInfo = styled.div`
+    display: flex;
+    align-items: center;`
+
+export const ViewNotif = styled.div`
+    margin: 0px 10px 0px 0px;`
+
 export const SearchInput = styled.input`
     width: 100px;
     font-size: 16px;

@@ -1,6 +1,14 @@
 import { Images } from '../../../assets'
-import { useState, useEffect } from 'react'
-import { SearchInput } from './header-user.styled'
+import React, { useState, useEffect } from 'react'
+import { 
+  ViewInfo, 
+  ViewNotif,
+  SearchInput, 
+} from './header-user.styled'
+import Button from '@material-ui/core/Button'
+import MenuItem from '@material-ui/core/MenuItem'
+import Menu from '@material-ui/core/Menu'
+import Avatar from '@material-ui/core/Avatar'
 import styles from '../../../assets/css/navbar.module.css'
 
 const Header = () => {
@@ -23,6 +31,15 @@ const Header = () => {
     }
   }
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  const openMenu = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+
   return (
     <nav className={Changenavbar ? 'ContainerNavbar active ' : 'ContainerNavbar'}>
       <div>
@@ -36,10 +53,48 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      {!islogin ? <div className={styles.ComponentNavbar}>
+      {!islogin ? 
+      <div className={styles.ComponentNavbar}>
         <div><SearchInput></SearchInput></div>
         <div><p>Masuk</p></div>
-      </div> : <p>Helo</p>}
+      </div> : 
+      <ViewInfo>
+        <div>
+          <Avatar 
+            src={Images.IconProfileDefault}
+            variant='contained'
+            onClick={openMenu}
+            className={styles.IconProfile}/>
+          <Menu
+            id='lame-menu'
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}>
+              <div>
+              <div className={styles.ViewDescMenu} onClick={handleClose}>
+                <img src={Images.IconProfile} width={20} />
+                <p>Profile</p>
+              </div>
+              <div className={styles.ViewDescMenu} onClick={handleClose}>
+                <img src={Images.IconClass} width={20} />
+                <p>Kelas Saya</p>
+              </div>
+              <div className={styles.ViewDescMenu} onClick={handleClose}>
+                <img src={Images.IconHelp} width={20} />
+                <p>Bantuan</p>
+              </div>
+              <div className={styles.ViewDescMenu} onClick={handleClose}>
+                <img src={Images.IconExit} width={20} />
+                <p>Keluar</p>
+              </div>
+              </div>
+          </Menu>
+        </div>
+        <div>
+          <img src={Images.IconNotications} width={18} />
+        </div>
+      </ViewInfo>}
     </nav>
   )
 }

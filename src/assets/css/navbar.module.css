@@ -33,3 +33,26 @@
     letter-spacing: 1px;
     color: #fff !important;
 }
+
+.IconProfile {
+    cursor: pointer;
+    margin: 0px 25px 0px 0px;
+}
+
+.ViewDescMenu {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin: 0px 0px 0px 0px;
+    padding: 8px 60px 8px 20px;
+}
+
+.ViewDescMenu:hover{
+    background-color: bisque;
+}
+
+.ViewDescMenu p {
+    font-size: 16px;
+    color: #BC3DDC;
+    margin: 0px 0px 0px 12px;
+}

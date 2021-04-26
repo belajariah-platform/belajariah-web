@@ -47,4 +47,12 @@ export default {
   IconCommunityWorship: require('./IconCommunityWorship.svg'),
   IconWriterBelajariah: require('./IconWriterBelajariah.svg'),
   ImageDefaultReviewer: require('./ImageDefaultReviewer.svg'),
+
+  //Navbar Image
+  IconHelp: require('./IconHelp.svg'),
+  IconExit: require('./IconExit.svg'),
+  IconClass: require('./IconClass.svg'),
+  IconProfile: require('./IconProfile.svg'),
+  IconNotications: require('./IconNotications.svg'),
+  IconProfileDefault: require('./IconProfileDefault.png'),
 }

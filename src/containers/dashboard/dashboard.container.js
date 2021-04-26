@@ -64,7 +64,7 @@ import {
 import styles from '../../assets/css/dashboards.module.css'
 
 const Dashboards = () => {
-  const islogin = false
+  const islogin = true
   const [categorySelected, setCategorySelected] = useState(0)
 
   const [stateEnum, setStateEnum] = useState([])
