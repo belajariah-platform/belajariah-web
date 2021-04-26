@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const ContainerAlert = styled.div`
-    width: ${(p) => p.width};
-    margin : 20px auto;
+    width: ${p => p.width};
+    margin : ${p => p.noMargin ? '0px auto' : '12px auto'};
     border-radius: 12px;
     padding: 0px 0px 12px 0px;
     background-color: #FFE7E7;`

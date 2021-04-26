@@ -11,38 +11,22 @@ const Logo = styled.img`
  margin-right: 8px;
 `
 
+const Title = styled.p`
+color: #fff;
+margin: -2px 0;
+font-size: 20px;
+font-weight: bold;
+`
+
+const Subtitle = styled.p`
+color: #fff;
+font-size: 12px;
+`
+
 const ImageMail = styled.img`
  width: 256px;
  height: 256px;
  margin-bottom: -8px;
-`
-
-const Title = styled.p`
-color: #ffffff;
-font-size: 20px;
-font-weight: bold;
-margin: -2px 0;
-`
-
-const Subtitle = styled.p`
-color: #ffffff;
-font-size: 12px;
-`
-
-const ContainerGoogle = styled.div`
- display: flex;
- margin-top: -6px;
- align-items: center;
- flex-direction: row;
- justify-content: center;
-`
-
-const ContainerButton = styled.div`
- display: flex;
- margin-top: -6px;
- align-items: center;
- flex-direction: row;
- justify-content: center;
 `
 
 const DividerText = styled.hr`
@@ -74,6 +58,22 @@ const DividerText = styled.hr`
    display: inline-block;
    background-color: #fcfcfa;
  }
+`
+
+const ContainerGoogle = styled.div`
+ display: flex;
+ margin-top: -6px;
+ align-items: center;
+ flex-direction: row;
+ justify-content: center;
+`
+
+const ContainerButton = styled.div`
+ display: flex;
+ margin-top: -6px;
+ align-items: center;
+ flex-direction: row;
+ justify-content: center;
 `
 
 export {

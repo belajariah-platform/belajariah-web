@@ -1,8 +1,8 @@
+import { Dashboards } from '../containers'
+
 const Dashboard = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-    </div>
+    <Dashboards />
   )
 }
 

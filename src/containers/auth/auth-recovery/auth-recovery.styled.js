@@ -5,17 +5,6 @@ const Gap = styled.div`
   height: 16px;
 `
 
-const ImageMail = styled.img`
- width: 252px;
- height: 224px;
- margin-bottom: -28px;
-`
-
-const ImageForgotPass = styled.img`
-width: 144px;
-height: 296px;
-`
-
 const Title = styled.p`
 color: #ffffff;
 margin: -2px 0;
@@ -30,10 +19,22 @@ max-width: 336px;
 text-align: center;
 `
 
+const ImageMail = styled.img`
+ width: 252px;
+ height: 224px;
+ margin-bottom: -28px;
+`
+
 const TitleCard = styled.p`
  color: #000;
  margin: -8px 0 4px;
  font-size: 28px;
+ font-weight: bold;
+`
+
+const TextPurple = styled.strong`
+ color: #A734C3;
+ font-size: 12px;
  font-weight: bold;
 `
 
@@ -54,15 +55,11 @@ const SubtitleLink = styled.a`
  }
 `
 
-const TextPurple = styled.strong`
- color: #A734C3;
- font-size: 12px;
- font-weight: bold;
-`
-
-const ContainerRecovery = styled.div`
+const ContainerForm = styled.div`
  display: flex;
- flex-direction: row;
+ flex-direction: column;
+ width: 276px;
+ margin-left: 36px;
 `
 
 const ContainerButton = styled.div`
@@ -73,12 +70,16 @@ const ContainerButton = styled.div`
  justify-content: center;
 `
 
-const ContainerForm = styled.div`
- display: flex;
- flex-direction: column;
- width: 276px;
- margin-left: 36px;
+const ImageForgotPass = styled.img`
+width: 144px;
+height: 296px;
 `
+
+const ContainerRecovery = styled.div`
+ display: flex;
+ flex-direction: row;
+`
+
 
 export {
   Gap,
