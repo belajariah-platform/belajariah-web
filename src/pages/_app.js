@@ -1,6 +1,7 @@
 import '../assets/css/global.css'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Route = ({ children }) => {
   const isLogin = true
