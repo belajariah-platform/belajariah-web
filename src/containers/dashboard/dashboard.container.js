@@ -245,25 +245,6 @@ const Dashboards = () => {
               <ViewCategoryClass>
                 {ClassCategory.map((category, index) => {
                   return (
-                    // <button
-                    //   key={index}
-                    //   onClick={ () => {
-                    //     setCategorySelected(category.id)
-                    //   }}>
-                    //   <p
-                    //     className={[
-                    //       styles.CategoryTxt,
-                    //       category.id === categorySelected
-                    //         ? {
-                    //           color: '#65C6E6',
-                    //           backgroundColor: 'red',
-                    //         }
-                    //         : {
-                    //           color: '#BC3DDC',
-                    //           backgroundColor: 'white',
-                    //         },
-                    //     ]}>{category.name}</p>
-                    // </button>
                     <a key={index}>
                       <div className={styles.CategoryView}>
                         <img src={category.IconClassCategory} />
@@ -301,55 +282,6 @@ const Dashboards = () => {
 
                 </ViewCardClass>
               </Carousel.Item>
-              {/* <Carousel.Item>
-                <ViewCardClass>
-                  <CardClass>
-                    <div><img src={Images.CardClassTahsin} width={360} /></div>
-                    <TxtCardClass>
-                      <div className={styles.TitleCardClass}><p>Belajar Al-Qur'an dari dasar dengan metode yang mudah dan menyenangkan</p></div>
-                      <div><img src={Images.IconStar} width={100} /></div>
-                      <div className={styles.LineClass}><hr></hr></div>
-                      <ViewPrice>
-                        <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                        <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
-                        <div className={styles.ButtonClass}>
-                          <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
-                        </div>
-                      </ViewPrice>
-                    </TxtCardClass>
-                  </CardClass>
-                  <CardClass>
-                    <div><img src={Images.CardClassTahsin} width={360} /></div>
-                    <TxtCardClass>
-                      <div className={styles.TitleCardClass}><p>Belajar Al-Qur'an dari dasar dengan metode yang mudah dan menyenangkan</p></div>
-                      <div><img src={Images.IconStar} width={100} /></div>
-                      <div className={styles.LineClass}><hr></hr></div>
-                      <ViewPrice>
-                        <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                        <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
-                        <div className={styles.ButtonClass}>
-                          <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
-                        </div>
-                      </ViewPrice>
-                    </TxtCardClass>
-                  </CardClass>
-                  <CardClass>
-                    <div><img src={Images.CardClassTahsin} width={360} /></div>
-                    <TxtCardClass>
-                      <div className={styles.TitleCardClass}><p>Belajar Al-Qur'an dari dasar dengan metode yang mudah dan menyenangkan</p></div>
-                      <div><img src={Images.IconStar} width={100} /></div>
-                      <div className={styles.LineClass}><hr></hr></div>
-                      <ViewPrice>
-                        <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                        <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
-                        <div className={styles.ButtonClass}>
-                          <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
-                        </div>
-                      </ViewPrice>
-                    </TxtCardClass>
-                  </CardClass>
-                </ViewCardClass>
-              </Carousel.Item> */}
             </Carousel>
           </Class>
 
@@ -387,20 +319,6 @@ const Dashboards = () => {
               </div>
             )
           })}
-          {/* <div className={styles.Benefit}>
-            <img src={Images.IconFreeConsul} />
-            <TitleBenefit>Gratis Konsultasi</TitleBenefit>
-            <div className={styles.TxtBenefit}>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim lorem dolor velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-          </div>
-          <div className={styles.Benefit}>
-            <img src={Images.IconCertificate} />
-            <TitleBenefit>Sertifikat & Evaluasi Hasil Belajar</TitleBenefit>
-            <div className={styles.TxtBenefit}>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim lorem dolor velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-          </div> */}
         </ViewBenefit>
       </ContainerBenefit>
     )
@@ -433,40 +351,6 @@ const Dashboards = () => {
               </Reviews>
             )
           })}
-
-          {/* <Reviews>
-            <IconReviews>
-              <img className={styles.StyleReviews} src={Images.IconStyleRev} width={90} />
-              <div className={styles.StarIcon}><img src={Images.IconStar} width={100} /></div>
-            </IconReviews>
-            <div className={styles.TxtReviews}>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim lorem dolor velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-            <Reviewer>
-              <div><img src={Images.ImgReviewer1} width={60} /></div>
-              <div className={styles.TxtReviewer}>
-                <p className={styles.TitleReviewer}>RAHUL BAJAF</p>
-                <p className={styles.DescReviewer}>Santri Kelas Tahsin Belajariah</p>
-              </div>
-            </Reviewer>
-          </Reviews>
-
-          <Reviews>
-            <IconReviews>
-              <img className={styles.StyleReviews} src={Images.IconStyleRev} width={90} />
-              <div className={styles.StarIcon}><img src={Images.IconStar} width={100} /></div>
-            </IconReviews>
-            <div className={styles.TxtReviews}>
-              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim lorem dolor velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            </div>
-            <Reviewer>
-              <div><img src={Images.ImgReviewer1} width={60} /></div>
-              <div className={styles.TxtReviewer}>
-                <p className={styles.TitleReviewer}>RAHUL BAJAF</p>
-                <p className={styles.DescReviewer}>Santri Kelas Tahsin Belajariah</p>
-              </div>
-            </Reviewer>
-          </Reviews> */}
         </ViewReview>
       </ContainerReview>
     )
@@ -524,39 +408,6 @@ const Dashboards = () => {
               </Story>
             )
           })}
-
-          {/* <Story>
-            <div className={styles.StoryImg}><img src={Images.ImgZaidBinTsabit} width={320} /></div>
-            <ViewStory>
-              <div className={styles.TitleStory}><p>Zaid Bin Tsabit, Sang Pena<br></br><strong>Rasulullah SAW</strong></p></div>
-              <div className={styles.IconArtStory}><img src={Images.IconArtSquare} width={300} /></div>
-              <div className={styles.TxtDescStory}><p>“Penulis Wahyu dan Pencinta Ilmu”<br></br>Kisah inspiratif datang lagi dari sahabat<br></br>Rasulullah SAW yang sangat memiliki<br></br>kecintaan terhadap ilmu.</p></div>
-              <ViewWritingBelajariah>
-                <div><img src={Images.IconWriterBelajariah} /></div>
-                <div>
-                  <div className={styles.ViewWriterBelajariah}>
-                    <p>Ditulis oleh<br></br><strong>BELAJARIAH</strong><img src={Images.IconChecklist} /></p>
-                  </div>
-                </div>
-              </ViewWritingBelajariah>
-            </ViewStory>
-          </Story>
-          <Story>
-            <div className={styles.StoryImg}><img src={Images.ImgIbnuSina} width={320} /></div>
-            <ViewStory>
-              <div className={styles.TitleStory}><p>Seorang tokoh Ilmuwan<br></br>Islam yaitu <strong>Ibnu Sina</strong></p></div>
-              <div className={styles.IconArtStory}><img src={Images.IconArtSquare} width={300} /></div>
-              <div className={styles.TxtDescStory}><p>Ibnu Sina merupakan seorang ilmuwan<br></br>muslim dunia yang berkontribusi besar di<br></br>bidang kedokteran.</p></div>
-              <ViewWritingBelajariah>
-                <div><img src={Images.IconWriterBelajariah} /></div>
-                <div>
-                  <div className={styles.ViewWriterBelajariah}>
-                    <p>Ditulis oleh<br></br><strong>BELAJARIAH</strong><img src={Images.IconChecklist} /></p>
-                  </div>
-                </div>
-              </ViewWritingBelajariah>
-            </ViewStory>
-          </Story> */}
         </ViewInspiratifStory>
         <ViewButton>
           <a href='#'><ButtonInspiratif>Bacaan Lainnya</ButtonInspiratif></a>
