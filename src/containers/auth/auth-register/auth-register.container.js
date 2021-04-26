@@ -102,7 +102,7 @@ const Register = (props) => {
           <div className={styles.containerTextRegister}>
             <p className={styles.textRegular}>Sudah memiliki akun?
               {' '}
-              <Link href='/'>
+              <Link href='/auth/login'>
                 <a className={styles.textLink}>Klik Disini</a>
               </Link>
             </p>
