@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { CarouselItem } from 'react-bootstrap'
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import { Tab, Tabs, AppBar } from '@material-ui/core'
 import {
   Class,
@@ -55,6 +55,10 @@ import {
   RatingAPI,
   PromotionAPI
 } from '../../api'
+import {
+  ResponsiveClass,
+  ResponsivePromo,
+} from '../../utils'
 import styles from '../../assets/css/dashboards.module.css'
 
 const Dashboards = () => {
@@ -230,49 +234,81 @@ const Dashboards = () => {
                 })}
               </ViewCategoryClass>
             )}
-            <Carousel>
-              <Carousel.Item>
-                <ViewCardClass>
-                  <CardClass>
-                    {stateClass.map((item, index) => {
-                      return (
-                        <div key={index}>
-                          <div><img src={Images.ImageDefault1} width={360} style={{ borderTopLeftRadius: 25, borderTopRightRadius: 25 }} /></div>
-                          <TxtCardClass>
-                            <div className={styles.TitleCardClass}><p>{item.Class_Name}</p></div>
-                            <div><img src={Images.IconStar} width={100} /></div>
-                            <div className={styles.LineClass}><hr></hr></div>
-                            <ViewPrice>
-                              <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                              <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
-                              <div className={styles.ButtonClass}>
-                                <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
-                              </div>
-                            </ViewPrice>
-                          </TxtCardClass>
+            <Carousel
+              ssr={true}
+              arrows={false}
+              showDots={false}
+              infinite={true}
+              autoPlay={false}
+              autoPlaySpeed={2000}
+              responsive={ResponsiveClass}
+              keyBoardControl={true}
+              containerClass='carousel-container'
+              removeArrowOnDeviceType={['tablet', 'mobile']}
+              dotListClass='custom-dot-list-style'
+              itemClass='carousel-item-padding-40-px'
+            >
+              <ViewCardClass>
+                <CardClass>
+                  {stateClass.map((item, index) => {
+                    return (
+                      <div key={index} style={{  }}>
+                        <div>
+                          <img src={Images.ImageDefault1} width={360} style={{ borderTopLeftRadius: 25, borderTopRightRadius: 25 }} />
                         </div>
-                      )
-                    })}
-                  </CardClass>
+                        <TxtCardClass>
+                          <div className={styles.TitleCardClass}><p>{item.Class_Name}</p></div>
+                          <div><img src={Images.IconStar} width={100} /></div>
+                          <div className={styles.LineClass}><hr></hr></div>
+                          <ViewPrice>
+                            <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
+                            <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
+                            <div className={styles.ButtonClass}>
+                              <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
+                            </div>
+                          </ViewPrice>
+                        </TxtCardClass>
+                      </div>
+                    )
+                  })}
+                </CardClass>
 
-                </ViewCardClass>
-              </Carousel.Item>
+              </ViewCardClass>
             </Carousel>
           </Class>
 
           <Promo>
             <TitleClass><ClassTitle>Promo Buat Kamu</ClassTitle></TitleClass>
-            <Carousel>
+            <Carousel
+              ssr={true}
+              arrows={false}
+              showDots={false}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={2000}
+              keyBoardControl={true}
+              transitionDuration={1000}
+              responsive={ResponsivePromo}
+              containerClass='carousel-container'
+              dotListClass='custom-dot-list-style'
+              itemClass='carousel-item-padding-40-px'
+              customTransition='transform 600ms ease-in-out'
+              removeArrowOnDeviceType={['tablet', 'mobile']}
+            >
+
               {statePromotion.map((item, index) => {
                 return(
-                  <Carousel.Item key={index}>
+                  <div key={index}>
                     <div className={styles.ViewPromo}>
-                      <a href='#'><img src={Images.ImageDefault5} width={540}/></a>
+                      <a href='#'><img src={item.banner_image == '' ?
+                        { uri : item.banner_image } : Images.ImageDefault5} width={500}/>
+                      </a>
                     </div>
-                  </Carousel.Item>
+                  </div>
                 )
               })}
             </Carousel>
+
           </Promo>
         </ViewClass>
       </ContainerClass>
