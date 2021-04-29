@@ -17,7 +17,7 @@
 }
   
 .Links a:hover {
-    color: #951CB3 !important;
+    color: #BC3DDC !important;
     text-decoration: none !important;
 }
   
@@ -48,11 +48,18 @@
 }
 
 .ViewDescMenu:hover{
-    background-color: bisque;
+    background-color: #dedede;
 }
 
 .ViewDescMenu p {
     font-size: 16px;
     color: #BC3DDC;
     margin: 0px 0px 0px 12px;
+}
+
+.IconTriangleNav {
+    top: 3.5%;
+    left: 47%;
+    width: 25px;
+    position: absolute;
 }

@@ -14,6 +14,7 @@ export const SearchInput = styled.input`
     border-radius: 4px;
     box-sizing: border-box;
     border: 1px solid #ccc;
+    background-size: 20px 20px;
     background-repeat: no-repeat;
     padding: 10px 20px 10px 40px;
     background-color: transparent;
