@@ -15,18 +15,12 @@ export const Content = styled.div`
  padding: 8% 10% 2%;
 `
 
-export const ContentHeader = styled.div`
- display: flex;
- flex-direction: row;
- justify-content: space-between;
-`
-
 export const ContentBlog = styled.div`
- display: flex;
- flex-direction: row;
- height: auto;
  width: 100%;
+ height: auto;
+ display: flex;
  flex-wrap: wrap;
+ flex-direction: row;
  justify-content: center;
 `
 
@@ -71,11 +65,11 @@ export const Clear = styled.img`
 `
 
 export const ContainerCategory = styled.div`
- position: absolute;
- display: flex;
- margin: 6px 0px 0px 10%;
- flex-direction: row;
  z-index: 2;
+ display: flex;
+ position: absolute;
+ flex-direction: row;
+ margin: 6px 0px 0px 10%;
 `
 
 export const BoxCategory = styled.div`
@@ -113,11 +107,11 @@ export const ImgCard = styled.img`
 `
 
 export const TitleCard = styled.p`
- margin-left: 20px;
  font-size: 16px;
+ margin-left: 20px;
 `
 
 export const SubtitleCard = styled.p`
- margin-left: 20px;
  font-size: 10px;
+ margin-left: 20px;
 `

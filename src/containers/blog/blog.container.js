@@ -17,9 +17,7 @@ import {
   Triangle,
   Container,
   BoxCategory,
-  ContentHeader,
   CategoryButton,
-  ContainerSearch,
   ContainerCategory,
   ImgCard,
   TitleCard,
@@ -40,9 +38,6 @@ const Blog = () => {
   const [showCategory, setShowCategory] = useState(false)
   const [loadingStory, setloadingStory] = useState(false)
   const [stateStory, setStateStory] = useState({ count : 0, story: [] })
-
-  const [count, setCount] = useState(0)
-  const [isi, setIsi] = useState([])
 
   const [stateRequest, setStateRequest] = useState({
     skip: 0,
@@ -84,18 +79,17 @@ const Blog = () => {
   }
 
   const fetchSearchStory = async ({ skip, take, filterString }) => {
-    console.log('halo')
     try {
-      //setloadingStory(true)
+      setloadingStory(true)
       const response = await StoryAPI.GetAllStory(skip, take, filterString)
       if (response.status === Response.SUCCESS) {
-        //setCount(response.data.count)
-        //setIsi(response.data.data)
+        setStateStory(s => ({ ...s, count : response.data.count }))
+        setStateStory(s => ({ ...s, story : response.data.data }))
         //console.log(response.data.data)
       }
-      // setloadingStory(false)
+      setloadingStory(false)
     } catch (err) {
-      // setloadingStory(false)
+      setloadingStory(false)
       return err
     }
   }
@@ -126,14 +120,20 @@ const Blog = () => {
   }
 
   const handleSearch = (event) => {
-    const result = {
-      skip: 0,
-      take: 6,
-      filter: [],
-      filterString : `[{"type": "text", "field" : "Title", "value": "${event.target.value}"}]`
-    }
-    fetchSearchStory(result)
-    console.log(result)
+    setSearchRequest({ ...searchRequest, filterString : `[{"type": "text", "field" : "Title", "value": "${event.target.value}"}]` })
+    fetchSearchStory(searchRequest)
+    //console.log(searchRequest)
+  }
+
+  const handleClear = () => {
+    document.getElementById('SearchInput').value = ''
+    fetchDataStory(stateRequest)
+  }
+
+  const handleSubmit = () => {
+    const value = document.getElementById('SearchInput').value
+    setSearchRequest({ ...searchRequest, filterString : `[{"type": "text", "field" : "Title", "value": "${value}"}]` })
+    fetchSearchStory(searchRequest)
   }
 
   const useStyles = makeStyles(() => ({
@@ -145,12 +145,55 @@ const Blog = () => {
     },
   }))
 
+  const ContentHeader = () => {
+    return (
+      <div className={styles.containerHeader}>
+        <CategoryButton onClick={handleShowCategory}>Kategori <Vector src={Images.IconVectorGrey}/></CategoryButton>
+        {showCategory && (
+          <ContainerCategory>
+            <Triangle />
+            <BoxCategory>
+              {categories.map((category, index) => (
+                <a
+                  key={index}
+                  onClick={() => handleCategoryIndex(index)}
+                  className={categoryIndex == index ? styles.categoriesActive : styles.categories}>
+                  {category.nameId}
+                </a>
+              ))}
+            </BoxCategory>
+          </ContainerCategory>
+        )}
+
+        {showSearch ? (
+          <Paper component='form' className={styles.containerSearch} elevation={0} style={{ borderRadius: 10, marginRight: '3.5%' }}>
+            <IconButton>
+              <Search src={Images.IconSearch} onClick={handleSubmit}/>
+            </IconButton>
+            <InputBase
+              id='SearchInput'
+              style={{ fontSize: 14 }}
+              className={styles.input}
+              onChange={handleSearch}
+            />
+            <IconButton>
+              <Clear src={Images.IconClear} onClick={handleClear}/>
+            </IconButton>
+          </Paper>
+        ): (
+          <IconButton style={{ marginRight: '2.5%' }}>
+            <Search src={Images.IconSearch} onClick={handleShowSearch} />
+          </IconButton>
+        )}
+      </div>
+    )
+  }
+
   const BlogList = () => {
     return(
       <ContentBlog>
         {stateStory.story.map((value, index) => {
           const date = moment(value.Modified_Date, 'YYYY-MM-DDTHH:mm:ssZ').format('Do MMMM YYYY')
-
           return(
             <div key={index} className={styles.card}>
               <Card
@@ -177,69 +220,24 @@ const Blog = () => {
               </div>
             </div>
           )
-        }
-        )}
+        })}
       </ContentBlog>
     )
   }
 
-  const ContainerBlog = () => {
+  const ContentPagination = () => {
     const classes = useStyles()
+
     return(
-      <Content>
-
-        <ContentHeader>
-          <CategoryButton onClick={handleShowCategory}>Kategori <Vector src={Images.IconVectorGrey}/></CategoryButton>
-          {showCategory && (
-            <ContainerCategory>
-              <Triangle />
-              <BoxCategory>
-                {categories.map((category, index) => (
-                  <a
-                    key={index}
-                    onClick={() => handleCategoryIndex(index)}
-                    className={categoryIndex == index ? styles.categoriesActive : styles.categories}>
-                    {category.nameId}
-                  </a>
-                ))}
-              </BoxCategory>
-            </ContainerCategory>
-          )}
-
-          {showSearch ? (
-            <Paper component='form' className={styles.containerSearch} elevation={0} style={{ borderRadius: 10, marginRight: '3.5%' }}>
-              <IconButton>
-                <Search src={Images.IconSearch} />
-              </IconButton>
-              <InputBase
-                style={{ fontSize: 14 }}
-                className={styles.input}
-                onChange={handleSearch}
-              />
-              <IconButton>
-                <Clear src={Images.IconClear} />
-              </IconButton>
-            </Paper>
-          ): (
-            <IconButton style={{ marginRight: '2.5%' }}>
-              <Search src={Images.IconSearch} onClick={handleShowSearch} />
-            </IconButton>
-          )}
-        </ContentHeader>
-
-        <BlogList />
-
-        <div style={{ alignSelf: 'center', justifyContent: 'center', display: 'flex', marginTop: 20 }}>
-          <Pagination
-            count={Math.ceil(stateStory.count / 6)}
-            page={page}
-            showLastButton
-            showFirstButton
-            onChange={(event, index) => handlePagination(index)}
-            classes={{ root: classes.root, hover: classes.hover, ul : classes.ul }} />
-        </div>
-
-      </Content>
+      <div style={{ alignSelf: 'center', justifyContent: 'center', display: 'flex', marginTop: 20 }}>
+        <Pagination
+          count={Math.ceil(stateStory.count / 6)}
+          page={page}
+          showLastButton
+          showFirstButton
+          onChange={(event, index) => handlePagination(index)}
+          classes={{ root: classes.root, hover: classes.hover, ul : classes.ul }} />
+      </div>
     )
   }
 
@@ -247,9 +245,9 @@ const Blog = () => {
     fetchDataStory(stateRequest)
   }, [stateRequest])
 
-  // useEffect(() => {
-  //   fetchDataStory(searchRequest)
-  // }, [searchRequest])
+  useEffect(() => {
+    fetchDataStory(searchRequest)
+  }, [searchRequest])
 
   return (
     <Container>
@@ -258,7 +256,11 @@ const Blog = () => {
       ) : (
         <HeaderUser variant='white' />
       )}
-      <ContainerBlog />
+      <Content>
+        {ContentHeader()}
+        <BlogList />
+        <ContentPagination />
+      </Content>
       <Footer />
     </Container>
   )
