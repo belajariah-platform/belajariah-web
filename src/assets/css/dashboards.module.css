@@ -7,7 +7,7 @@
 }
 
 .ViewPromo img {
-  margin: 0px 30px 0px 0px;
+  margin: 0px 30px 0px 30px;
 }
 
 .ViewWriterBelajariah {
@@ -120,6 +120,7 @@
 
 .LineClass hr {
   margin: 10px 0px 10px 0px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .StarIcon img {
@@ -132,10 +133,11 @@
 }
 
 .TitleCardClass {
-  margin: 0px 0px 30px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .TitleCardClass p {
+  margin: 0px;
   font-size: 16px;
   color: #343434;
   font-weight: 500;
@@ -296,7 +298,7 @@
   font-size: 18px;
   font-weight: 500;
   padding: 8px 0px 8px 0px;
-}
+} 
 
 .BottomFooter {
   text-align: center;
@@ -396,4 +398,8 @@
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
   }
+}
+
+.PrivateTabIndicator-colorSecondary-3 {
+  background-color: #FEF9FF;
 }

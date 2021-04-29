@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { Tab, Tabs, AppBar } from '@material-ui/core'
+import { Tab, Tabs, AppBar, } from '@material-ui/core'
 import {
   Class,
   Promo,
@@ -53,7 +53,12 @@ import {
 } from './dashboard.styled'
 import { Images } from '../../assets'
 import { Response } from '../../utils'
-import { HeaderUser, Buttons } from '../../components'
+import {
+  HeaderUser,
+  ShimmerPromo,
+  ShimmerClass,
+  ShimmerInspiratifStory,
+} from '../../components'
 import {
   EnumAPI,
   ClassAPI,
@@ -68,8 +73,8 @@ import {
 import styles from '../../assets/css/dashboards.module.css'
 
 const Dashboards = () => {
-  const islogin = false
-  const [categorySelected, setCategorySelected] = useState(0)
+  const islogin = true
+  const [selectedTab, setSelectedTab] = useState(0)
 
   const [stateEnum, setStateEnum] = useState([])
   const [stateStory, setStateStory] = useState([])
@@ -84,7 +89,7 @@ const Dashboards = () => {
   const [loadingPromo, setloadingPromo] = useState(true)
   const [loadingRating, setloadingRating] = useState(true)
   const [loadingSocialMedia, setloadingSocialMedia] = useState(true)
-  const [dataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
+  const [dataState, setDataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
   const [dataStates] = useState({ skip: 0, take: 7, filter: [], filterString: '[]' })
 
   const ClassCategory = [
@@ -181,14 +186,38 @@ const Dashboards = () => {
     }
   }
 
+  const handleChange = (event, newValue) => {
+    setSelectedTab(newValue)
+  }
+
+  const onDataStateChange = (event) => {
+    setDataState({
+      ...dataState,
+      filterString : `[{"type": "text", "field" : "Class_Name", "value": "${event.target.value}"}]`
+    })
+  }
+
   useEffect(() => {
     fetchDataEnum(dataState)
-    fetchDataClass(dataState)
     fetchDataStory(dataState)
     fetchDataRating(dataState)
     fetchDataPromotion(dataState)
     fetchDataSocialMedia(dataStates)
   }, [])
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      fetchDataClass(dataState)
+    }, 500)
+    return () => clearTimeout(delay)
+  }, [dataState])
+
+  const a11yProps = (index) =>  {
+    return{
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    }
+  }
 
   const ContentHeading = () => {
     return !islogin ? (
@@ -204,25 +233,26 @@ const Dashboards = () => {
           <AppBar position='static' style={{
             zIndex: 1,
             boxShadow: 'none',
+            alignItems: 'center',
             flexDirection: 'row',
             backgroundColor: '#951CB3',
             justifyContent: 'space-between' }}>
-            <Tabs>
-              <Tab label='Semua' style={{
+            <Tabs value={selectedTab} onChange={handleChange} indicatorColor='secondary'>
+              <Tab {...a11yProps(0)} label='Semua' style={{
                 opacity: 1,
                 fontSize: 16,
                 color: '#fff',
                 textTransform :'none',
                 borderTopLeftRadius: 20,
                 borderTopRightRadius: 20, }} />
-              <Tab label='Kelas Populer' style={{
+              <Tab onClick={() => fetchDataClass(dataState)} {...a11yProps(2)} label='Kelas Populer' style={{
                 opacity: 1,
                 fontSize: 16,
                 color: '#fff',
                 textTransform :'none',
                 borderTopLeftRadius: 20,
                 borderTopRightRadius: 20, }} />
-              <Tab label='Kelas Terbaru' style={{
+              <Tab onClick={() => fetchDataPromotion(dataState)} {...a11yProps(3)} label='Kelas Terbaru' style={{
                 opacity: 1,
                 fontSize: 16,
                 color: '#fff',
@@ -231,7 +261,7 @@ const Dashboards = () => {
                 borderTopRightRadius: 20, }} />
             </Tabs>
             <ViewInputSearch>
-              <InputSearch placeholder='Search' />
+              <InputSearch placeholder='Search' onChange={onDataStateChange} />
             </ViewInputSearch>
           </AppBar>
         </ViewHeadingLog>
@@ -245,7 +275,7 @@ const Dashboards = () => {
         <ViewClass>
           <Class>
             <TitleClass><ClassTitle>Semua Kelas</ClassTitle></TitleClass>
-            {islogin && (
+            {/* {islogin && (
               <ViewCategoryClass>
                 {ClassCategory.map((category, index) => {
                   return (
@@ -258,82 +288,80 @@ const Dashboards = () => {
                   )
                 })}
               </ViewCategoryClass>
-            )}
-            <Carousel
-              ssr={true}
-              arrows={false}
-              showDots={false}
-              infinite={true}
-              autoPlay={false}
-              autoPlaySpeed={2000}
-              responsive={ResponsiveClass}
-              keyBoardControl={true}
-              containerClass='carousel-container'
-              removeArrowOnDeviceType={['tablet', 'mobile']}
-              dotListClass='custom-dot-list-style'
-              itemClass='carousel-item-padding-40-px'
-            >
-              <ViewCardClass>
-                <CardClass>
-                  {stateClass.map((item, index) => {
-                    return (
-                      <div key={index} style={{  }}>
-                        <div>
-                          <img src={Images.ImageDefault1} width={360} style={{ borderTopLeftRadius: 25, borderTopRightRadius: 25 }} />
+            )} */}
+            {loadingClass ? <ShimmerClass /> :
+              <Carousel
+                ssr={true}
+                arrows={false}
+                showDots={false}
+                infinite={true}
+                autoPlay={false}
+                autoPlaySpeed={2000}
+                responsive={ResponsiveClass}
+                keyBoardControl={true}
+                containerClass='carousel-container'
+                removeArrowOnDeviceType={['tablet', 'mobile']}
+                dotListClass='custom-dot-list-style'
+                itemClass='carousel-item-padding-40-px'>
+                <ViewCardClass>
+                  <CardClass>
+                    {stateClass.map((item, index) => {
+                      return (
+                        <div key={index} style={{ marginRight: 110 }}>
+                          <div>
+                            <img src={item.Class_Image != '' ? item.Class_Image : Images.ImageDefault1} width={330} height={192} style={{ borderTopLeftRadius: 25, borderTopRightRadius: 25 }} />
+                          </div>
+                          <TxtCardClass>
+                            <div className={styles.TitleCardClass}><p>{item.Class_Name}</p></div>
+                            <div><img src={Images.IconStar} width={100} /></div>
+                            <div className={styles.LineClass}><hr></hr></div>
+                            <ViewPrice>
+                              <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
+                              <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
+                              <div className={styles.ButtonClass}>
+                                <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
+                              </div>
+                            </ViewPrice>
+                          </TxtCardClass>
                         </div>
-                        <TxtCardClass>
-                          <div className={styles.TitleCardClass}><p>{item.Class_Name}</p></div>
-                          <div><img src={Images.IconStar} width={100} /></div>
-                          <div className={styles.LineClass}><hr></hr></div>
-                          <ViewPrice>
-                            <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                            <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
-                            <div className={styles.ButtonClass}>
-                              <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
-                            </div>
-                          </ViewPrice>
-                        </TxtCardClass>
-                      </div>
-                    )
-                  })}
-                </CardClass>
-
-              </ViewCardClass>
-            </Carousel>
+                      )
+                    })}
+                  </CardClass>
+                </ViewCardClass>
+              </Carousel>
+            }
           </Class>
 
           <Promo>
             <TitleClass><ClassTitle>Promo Buat Kamu</ClassTitle></TitleClass>
-            <Carousel
-              ssr={true}
-              arrows={false}
-              showDots={false}
-              infinite={true}
-              autoPlay={true}
-              autoPlaySpeed={2000}
-              keyBoardControl={true}
-              transitionDuration={1000}
-              responsive={ResponsivePromo}
-              containerClass='carousel-container'
-              dotListClass='custom-dot-list-style'
-              itemClass='carousel-item-padding-40-px'
-              customTransition='transform 600ms ease-in-out'
-              removeArrowOnDeviceType={['tablet', 'mobile']}
-            >
-
-              {statePromotion.map((item, index) => {
-                return(
-                  <div key={index}>
-                    <div className={styles.ViewPromo}>
-                      <a href='#'><img src={item.banner_image == '' ?
-                        { uri : item.banner_image } : Images.ImageDefault5} width={500}/>
-                      </a>
+            {loadingPromo ? <ShimmerPromo /> :
+              <Carousel
+                ssr={true}
+                arrows={false}
+                infinite={true}
+                autoPlay={true}
+                showDots={false}
+                autoPlaySpeed={2000}
+                keyBoardControl={true}
+                transitionDuration={1000}
+                responsive={ResponsivePromo}
+                containerClass='carousel-container'
+                dotListClass='custom-dot-list-style'
+                itemClass='carousel-item-padding-40-px'
+                customTransition='transform 600ms ease-in-out'
+                removeArrowOnDeviceType={['tablet', 'mobile']}>
+                {statePromotion.map((item, index) => {
+                  return(
+                    <div key={index}>
+                      <div className={styles.ViewPromo}>
+                        <a href='#'><img src={item.Banner_Image != '' ? item.Banner_Image : Images.ImageDefault5} width={500}/>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
-            </Carousel>
-
+                  )
+                })}
+              </Carousel>
+            }
           </Promo>
         </ViewClass>
       </ContainerClass>
@@ -539,7 +567,7 @@ const Dashboards = () => {
   return(
     <Container>
       <HeaderUser />
-      <ContentHeading />
+      {ContentHeading()}
       <ContentClass />
       <ContentBenefit />
       <ContentReview />

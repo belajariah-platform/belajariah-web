@@ -1,11 +1,16 @@
 import Buttons from './button'
-import { AlertForm } from './alert'
 import Context from './context'
 import Loading from './loading'
 import { CardForm } from './card'
+import { AlertForm } from './alert'
 import TextInput from './text-input'
 import { HeaderUser } from './header'
 import { BackgroundAuth }  from './background'
+import {
+  ShimmerPromo,
+  ShimmerClass,
+  ShimmerInspiratifStory,
+} from './shimmer'
 
 export {
   Buttons,
@@ -15,5 +20,8 @@ export {
   AlertForm,
   TextInput,
   HeaderUser,
+  ShimmerPromo,
+  ShimmerClass,
   BackgroundAuth,
+  ShimmerInspiratifStory,
 }
