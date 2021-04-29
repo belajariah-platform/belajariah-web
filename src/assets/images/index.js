@@ -47,4 +47,8 @@ export default {
   IconCommunityWorship: require('./IconCommunityWorship.svg'),
   IconWriterBelajariah: require('./IconWriterBelajariah.svg'),
   ImageDefaultReviewer: require('./ImageDefaultReviewer.svg'),
+
+  //Blog List
+  IconClear: require('./IconClear.svg'),
+  IconVectorGrey: require('./IconVectorGrey.svg'),
 }

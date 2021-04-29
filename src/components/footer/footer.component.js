@@ -57,7 +57,7 @@ const Footer = () => {
                 value == 'Googleplay' ? icon = Images.IconGoPlay :
                   icon = Images.IconYt
                 return value == 'Googleplay' ? (
-                  <a href={item.Value.split('|')[1]}><img src={icon} width={130} /></a>
+                  <a key={index} href={item.Value.split('|')[1]}><img src={icon} width={130} /></a>
                 ) : null
               })}
             </div>
@@ -79,7 +79,7 @@ const Footer = () => {
                     value == 'Instagram' ? icon = Images.IconInsta :
                       icon = Images.IconYt
                   return value == 'Facebook' || value == 'Instagram' || value == 'Youtube' ? (
-                    <a href={item.Value.split('|')[1]}><img src={icon} /></a>
+                    <a key={index} href={item.Value.split('|')[1]}><img src={icon} /></a>
                   ) : null
                 })}
               </div>
