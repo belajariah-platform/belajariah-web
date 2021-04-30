@@ -138,14 +138,16 @@ export const Class = styled.div`
 export const ViewCardClass = styled.div`
     padding: 0px 0px;
     margin: 0px 0px 0px 0px;
-    justify-content: space-between;`
+    `
 
 export const CardClass = styled.div`
     display: flex;
-    padding: 0px 0px 0px 0px;`
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    justify-content: space-between;`
 
 export const TxtCardClass = styled.div`
-    width: 360px;
+    width: 330px;
     padding: 10px 15px;
     border-radius: 20px;
     background-color: #fff;

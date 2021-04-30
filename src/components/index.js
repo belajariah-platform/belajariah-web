@@ -7,6 +7,11 @@ import { AlertForm } from './alert'
 import TextInput from './text-input'
 import { HeaderUser } from './header'
 import { BackgroundAuth }  from './background'
+import {
+  ShimmerPromo,
+  ShimmerClass,
+  ShimmerInspiratifStory,
+} from './shimmer'
 
 export {
   Footer,
@@ -17,5 +22,8 @@ export {
   AlertForm,
   TextInput,
   HeaderUser,
+  ShimmerPromo,
+  ShimmerClass,
   BackgroundAuth,
+  ShimmerInspiratifStory,
 }

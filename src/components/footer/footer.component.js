@@ -47,7 +47,7 @@ const Footer = () => {
             <div className={styles.DescFooter}>
               <a href='#'><p>Kelas</p></a>
               <a href='#'><p>Tentang Kami</p></a>
-              <a href='#'><p>Bacaan Inspiratif</p></a>
+              <a href='/blog'><p>Bacaan Inspiratif</p></a>
             </div>
             <div className={styles.ViewDescOther}>
               <p>TERSEDIA DI :</p>

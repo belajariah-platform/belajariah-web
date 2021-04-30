@@ -64,31 +64,14 @@ export const Clear = styled.img`
  }
 `
 
-export const ContainerCategory = styled.div`
- z-index: 2;
- display: flex;
- position: absolute;
- flex-direction: row;
- margin: 6px 0px 0px 10%;
-`
-
-export const BoxCategory = styled.div`
- width: 292px;
- height: auto;
- background: #fff;
- padding: 16px 12px;
- display: inline-block;
- border-radius: 0px 20px 20px 20px;
- box-shadow: 0px 0px 12px 2px rgba(52,52,52, 0.15);
-`
-
 export const Triangle = styled.div`
+  left: -22px;
   width: 22px;
   height: 26px;
   overflow: hidden;
-  position: relative;
+  position: absolute;
   &:after{
-   top: 12px;
+   top: 10px;
    right: -6px;
    width: 11px;
    content: "";

@@ -1,0 +1,12 @@
+.LineClass hr {
+    margin: 10px 0px 10px 0px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.ViewPromo {
+    display: flex;
+    padding: 0px 10px;
+    text-align: center;
+    margin: -48px 30px 0px 0px;
+    justify-content: space-between;
+}
