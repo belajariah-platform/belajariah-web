@@ -1,0 +1,69 @@
+.categories {
+    height: 30px;
+    margin: 4px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #C4C4C4;
+    border-radius: 12px;
+    display: inline-flex;
+    padding: 4px 12px 6px 14px;
+    border: 1px solid #C4C4C4;
+}
+
+.categories:hover{
+    cursor: pointer;
+}
+
+.categoriesActive {
+    height: 30px;
+    margin: 4px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #951CB3;
+    border-radius: 12px;
+    display: inline-flex;
+    padding: 4px 12px 6px 14px;
+    border: 1px solid #951CB3;
+}
+
+.categoriesActive:hover{
+    cursor: pointer;
+}
+
+.card{
+    padding: 0;
+    width: 27%;
+    margin: 32px 3%;
+    position: relative;
+}
+
+.cardButton{
+    left: 0;
+    right: 0;
+    bottom: -16px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+}
+
+.containerHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerSearch{
+    width: 400px;
+    height: 36px;
+    display: flex;
+    padding: 4px 4px;
+    align-items: center;
+    align-self: flex-end;
+    border: 1px solid #C4C4C4;
+}
+
+.input{
+    flex: 1;
+    margin-left: 24px;
+    border-radius: 24px;
+}
