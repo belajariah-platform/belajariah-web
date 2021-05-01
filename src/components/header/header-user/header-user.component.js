@@ -23,10 +23,10 @@ const Header = () => {
   const [Changenavbar, setChangeNavbar] = useState(false)
 
   const ListNavbar = [
-    { id: 1, TxtListNavbar: 'Kelas'},
-    { id: 2, TxtListNavbar: 'Tentang Kami'},
-    { id: 3, TxtListNavbar: 'Bacaan Inspiratif'},
-    { id: 4, TxtListNavbar: 'Bantuan'},
+    { id: 1, TxtListNavbar: 'Kelas' },
+    { id: 2, TxtListNavbar: 'Tentang Kami' },
+    { id: 3, TxtListNavbar: 'Bacaan Inspiratif' },
+    { id: 4, TxtListNavbar: 'Bantuan' },
   ]
 
   const MenusProfile = [
@@ -140,8 +140,8 @@ const Header = () => {
                 // ref={anchorRef}
                 // aria-controls={open ? 'menu-list-grow' : undefined}
                 // aria-haspopup='true'
-                // onClick={handleToggle} 
-                />
+                // onClick={handleToggle}
+              />
             </Badge>
           </ViewNotif>
         </ViewInfo>}
