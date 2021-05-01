@@ -38,6 +38,17 @@ a {
   box-shadow: 5px 5px 20px rgba(52, 52, 52, 0.15);
 }
 
+.ContainerNavbar.purple {
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  padding: 1% 10%;
+  position: fixed;
+  background-color: #951CB3;
+  justify-content: space-between;
+  box-shadow: 5px 5px 20px rgba(52, 52, 52, 0.15);
+}
+
 .Links.active {
   font-size: 18px;
   font-weight: 500;

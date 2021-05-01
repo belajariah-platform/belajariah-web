@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components'
 export const ButtonLogin = styled.button`
     width: 50px;
     height: 46px;
-    width: 100%;
-    height: 36px;
+    width: ${props => props.width ? props.width : '100%'};
+    height: ${props => props.height ? props.height : '36px'};
     border: none;
     line-height: 2;
     cursor: pointer;
-    padding: 0% 20%;
+    padding: ${props => props.padding ? props.padding : '0% 20%'};
     font-size: 12px;
     font-weight: 700;
     align-items: center;

@@ -48,6 +48,10 @@ export default {
   IconWriterBelajariah: require('./IconWriterBelajariah.svg'),
   ImageDefaultReviewer: require('./ImageDefaultReviewer.svg'),
 
+  //Blog List
+  IconClear: require('./IconClear.svg'),
+  IconVectorGrey: require('./IconVectorGrey.svg'),
+
   //Navbar Image
   IconHelp: require('./IconHelp.svg'),
   IconExit: require('./IconExit.svg'),

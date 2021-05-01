@@ -12,12 +12,8 @@ import {
   CardClass,
   ViewPrice,
   ViewStory,
-  TopFooter,
   ViewTitle,
   Container,
-  ViewFooter,
-  FooterPage,
-  FooterInfo,
   ViewButton,
   ViewReview,
   ClassTitle,
@@ -31,7 +27,6 @@ import {
   InputSearch,
   TitleBenefit,
   TxtCardClass,
-  FooterContact,
   ButtonHeading,
   ViewCardClass,
   ContainerClass,
@@ -39,7 +34,6 @@ import {
   ViewHeadingLog,
   ContainerReview,
   ViewInputSearch,
-  Containerfooter,
   ButtonInspiratif,
   ContainerHeading,
   ContainerBenefit,
@@ -54,6 +48,7 @@ import {
 import { Images } from '../../assets'
 import { Response } from '../../utils'
 import {
+  Footer,
   HeaderUser,
   ShimmerPromo,
   ShimmerClass,
@@ -81,14 +76,12 @@ const Dashboards = () => {
   const [stateClass, setStateClass] = useState([])
   const [stateRating, setStateRating] = useState([])
   const [statePromotion, setStatePromotion] = useState([])
-  const [stateSocialMedia, setStateSocialMedia] = useState([])
 
   const [loadingEnum, setloadingEnum] = useState(true)
   const [loadingClass, setloadingClass] = useState(true)
   const [loadingStory, setloadingStory] = useState(true)
   const [loadingPromo, setloadingPromo] = useState(true)
   const [loadingRating, setloadingRating] = useState(true)
-  const [loadingSocialMedia, setloadingSocialMedia] = useState(true)
   const [dataState, setDataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
   const [dataStates] = useState({ skip: 0, take: 7, filter: [], filterString: '[]' })
 
@@ -171,21 +164,6 @@ const Dashboards = () => {
     }
   }
 
-  const fetchDataSocialMedia = async ({ skip, take, filterString }) => {
-    try {
-      setloadingSocialMedia(true)
-      filterString='[{"type": "text", "field" : "type", "value": "social_media"}]'
-      const response = await EnumAPI.GetAllEnum(skip, take, filterString)
-      if (response.status === Response.SUCCESS) {
-        setStateSocialMedia(response.data.data)
-      }
-      setloadingSocialMedia(false)
-    } catch (err) {
-      setloadingSocialMedia(false)
-      return err
-    }
-  }
-
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue)
   }
@@ -202,7 +180,6 @@ const Dashboards = () => {
     fetchDataStory(dataState)
     fetchDataRating(dataState)
     fetchDataPromotion(dataState)
-    fetchDataSocialMedia(dataStates)
   }, [])
 
   useEffect(() => {
@@ -224,7 +201,7 @@ const Dashboards = () => {
       <ContainerHeading>
         <ViewTitle><strong>Kelas Online</strong> Belajar Al-Qur'an<br></br>Lebih Mudah, Lebih Cepat,<br></br>dan Menyenangkan</ViewTitle>
         <ViewButton>
-          <a href='#'><ButtonHeading>Daftar Sekarang</ButtonHeading></a>
+          <a href='/auth/register'><ButtonHeading>Daftar Sekarang</ButtonHeading></a>
         </ViewButton>
       </ContainerHeading>
     ) : (
@@ -477,90 +454,6 @@ const Dashboards = () => {
           <a href='#'><ButtonInspiratif>Bacaan Lainnya</ButtonInspiratif></a>
         </ViewButton>
       </ContainerInspiratifStory>
-    )
-  }
-
-  const Footer = () => {
-    return(
-      <Containerfooter>
-        <ViewFooter>
-          <TopFooter>
-            <div className={styles.IconLogoFooter}><img src={Images.BelajariahLogoWhite} /></div>
-            <FooterPage>
-              <div className={styles.TitleDescPageFooter}><p>BELAJARIAH</p></div>
-              <div className={styles.DescFooter}>
-                <a href='#'><p>Kelas</p></a>
-                <a href='#'><p>Tentang Kami</p></a>
-                <a href='#'><p>Bacaan Inspiratif</p></a>
-              </div>
-              <div className={styles.ViewDescFooterOther}>
-                <p>TERSEDIA DI :</p>
-                {stateSocialMedia.map((item, index) => {
-                  let icon
-                  let value = item.Value.split('|')[0]
-                  value == 'Googleplay' ? icon = Images.IconGoPlay :
-                    icon = Images.IconYt
-                  return value == 'Googleplay' ? (
-                    <a href={item.Value.split('|')[1]}><img src={icon} width={130} /></a>
-                  ) : null
-                })}
-              </div>
-            </FooterPage>
-            <FooterInfo>
-              <div className={styles.TitleDescInfoFooter}><p>INFORMASI</p></div>
-              <div className={styles.DescFooter}>
-                <a href='#'><p>Syarat dan Ketentuan</p></a>
-                <a href='#'><p>Kebijakan Privasi</p></a>
-                <a href='#'><p>Bantuan</p></a>
-              </div>
-              <div className={styles.ViewDescFooterOther}>
-                <p>IKUTI KAMI</p>
-                <div className={styles.ViewIconSocmed}>
-                  {stateSocialMedia.map((item, index) => {
-                    let icon
-                    let value = item.Value.split('|')[0]
-                    value == 'Facebook' ? icon = Images.IconFb :
-                      value == 'Instagram' ? icon = Images.IconInsta :
-                        icon = Images.IconYt
-                    return value == 'Facebook' || value == 'Instagram' || value == 'Youtube' ? (
-                      <a href={item.Value.split('|')[1]}><img src={icon} /></a>
-                    ) : null
-                  })}
-                </div>
-              </div>
-            </FooterInfo>
-            <FooterContact>
-              <div className={styles.TitleDescContactFooter}><p>HUBUNGI KAMI</p></div>
-              <div className={styles.DescFooter}>
-                {stateSocialMedia.map((item, index) => {
-                  let icon
-                  let value = item.Value.split('|')[0]
-                  value == 'Gmail' ? icon = Images.IconEmail :
-                    value == 'Phone' ? icon = Images.IconPhone :
-                      icon = Images.IconWA
-                  return value == 'Gmail' || value == 'Phone' || value =='Whatsapp' ? (
-                    <div key={index}>
-                      <div className={styles.ViewContact}>
-                        <img src={icon} width={24} height={20}/>
-                        <p>{item.Value.split('|')[1]}</p>
-                      </div>
-                    </div>
-                  ) : null
-                })}
-              </div>
-            </FooterContact>
-          </TopFooter>
-          <div className={styles.BottomFooter}>
-            <hr></hr>
-            <p>©2021 Belajariah. All Right Reserved.</p>
-          </div>
-        </ViewFooter>
-        <section>
-          <div className='air air1'></div>
-          <div className='air air2'></div>
-          <div className='air air3'></div>
-        </section>
-      </Containerfooter>
     )
   }
 

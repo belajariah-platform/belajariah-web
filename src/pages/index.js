@@ -1,12 +1,9 @@
-import { CardForm } from '../components'
-import { Login, Recovery, Register } from '../containers'
-import { AlertForm, Buttons } from '../components'
+import { Dashboards } from '../containers'
 
 const Index = () => {
   return (
     <div>
-      {/* <HeaderUser /> */}
-      <Login />
+      <Dashboards/>
     </div>
   )
 }

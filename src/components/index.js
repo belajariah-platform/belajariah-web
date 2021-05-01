@@ -1,3 +1,4 @@
+import Footer from './footer'
 import Buttons from './button'
 import Context from './context'
 import Loading from './loading'
@@ -13,6 +14,7 @@ import {
 } from './shimmer'
 
 export {
+  Footer,
   Buttons,
   Context,
   Loading,
