@@ -62,4 +62,15 @@ export default {
   IconShopWhite: require('./IconShopWhite.svg'),
   IconNotications: require('./IconNotications.svg'),
   IconProfileDefault: require('./IconProfileDefault.png'),
+
+  //Profile Image
+  IconUnion: require('./IconUnion.svg'),
+  IconGender: require('./IconGender.svg'),
+  IconEmailPurple: require('./IconEmailPurple.svg'),
+  IconPhonePurple: require('./IconPhonePurple.svg'),
+
+  //Change Password Image
+  IconAddress: require('./IconAddress.svg'),
+  IconProfession: require('./IconProfession.svg'),
+  ChangePasswordIllustration: require('./ChangePasswordIllustration.svg'),
 }

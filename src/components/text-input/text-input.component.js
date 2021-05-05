@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { TextField } from '@material-ui/core'
+import { TextField, TextareaAutosize } from '@material-ui/core'
 
 import { Images } from '../../assets'
 import styles from '../../assets/css/auth.module.css'
@@ -50,6 +50,16 @@ const TextInput = (props) => {
         return <ErrorMsg>Email ini telah terdaftar.</ErrorMsg>
       case 'notregistered':
         return <ErrorMsg>Email ini tidak terdaftar.</ErrorMsg>
+      case 'professionrequired':
+        return <ErrorMsg>Harap masukan profesi anda.</ErrorMsg>
+      case 'provincerequired':
+        return <ErrorMsg>Harap masukan provinsi tempat tinggal anda.</ErrorMsg>
+      case 'cityrequired':
+        return <ErrorMsg>Harap masukan kota tempat tinggal anda.</ErrorMsg>
+      case 'addressrequired':
+        return <ErrorMsg>Harap masukan alamat tempat tinggal anda.</ErrorMsg>
+      case 'birthdayrequired':
+        return <ErrorMsg>Harap masukan tanggal lahir anda.</ErrorMsg>
       default:
         <span />
       }
@@ -66,7 +76,7 @@ const TextInput = (props) => {
         <Title>{props.title}</Title>
         {errorTitle()}
       </ContainerTitle>
-      {props.name == 'Full_Name' ? (
+      {props.name == 'Full_Name' || props.name == 'Profession' || props.name == 'Province' || props.name == 'City' ? (
         <TextField
           size='small'
           variant='outlined'
@@ -96,7 +106,7 @@ const TextInput = (props) => {
               fontSize: 12
             }
           }} />
-      ) : props.name == 'Password' || props.name == 'Confirm_Password' ? (
+      ) : props.name == 'Password' || props.name == 'Confirm_Password' || props.name == 'New_Password' ? (
         <TextField
           size='small'
           variant='outlined'
@@ -146,6 +156,32 @@ const TextInput = (props) => {
               }
             }}/>
         </ContainerPhone>
+      ) : props.name == 'Address' ? (
+        <TextareaAutosize
+          variant='outlined'
+          style={{ width : '100%', height: 100, borderRadius: 5, backgroundColor: 'transparent' }}
+          value={props.form && `${props.form.values[props.name]}`}
+          onBlur={props.form && props.form.handleBlur(props.name)}
+          onChange={props.form && props.form.handleChange(props.name)}
+          inputProps={{
+            style: {
+              fontSize: 12,
+            }
+          }} />
+      ) : props.name == 'Birthday' ? (
+        <TextField
+          size='small'
+          type='date'
+          variant='outlined'
+          style={{ width : '100%' }}
+          value={props.form && `${props.form.values[props.name]}`}
+          onBlur={props.form && props.form.handleBlur(props.name)}
+          onChange={props.form && props.form.handleChange(props.name)}
+          inputProps={{
+            style: {
+              fontSize: 12,
+            }
+          }} />
       ) : props.name == 'Code' && (
         <TextField
           size='small'
@@ -156,10 +192,11 @@ const TextInput = (props) => {
           onChange={props.form && props.form.handleChange(props.name)}
           inputProps={{
             style: {
-              fontSize: 12
+              fontSize: 12,
             }
           }} />
-      )}
+      )
+      }
     </>
   )
 }
