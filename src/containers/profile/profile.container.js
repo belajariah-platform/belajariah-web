@@ -1,7 +1,8 @@
 import moment from 'moment'
+import { useFormik } from 'formik'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { Tab, Tabs, AppBar, Box, Typography } from '@material-ui/core'
+import { Tab, Tabs, AppBar, Box, Typography, TextField } from '@material-ui/core'
 
 import { UserAPI } from '../../api'
 import { Images } from '../../assets'
@@ -36,6 +37,7 @@ const Profile = () => {
   const [stateUser, setStateUser] = useState([])
   const [dataState, setDataState] = useState({})
   const [loadingUser, setloadingUser] = useState(true)
+  const [str, setStr] = useState('')
 
   const fetchDataUser = async (email) => {
     email = 'herryheryanto22@gmail.com'
@@ -51,6 +53,16 @@ const Profile = () => {
       return err
     }
   }
+
+  const FormSubmit = useFormik({
+    initialValues: {
+      Full_Name: '',
+    },
+    onSubmit: async (values) => {
+
+    }
+  })
+
 
   useEffect(() => {
     fetchDataUser(dataState)
@@ -214,15 +226,16 @@ const Profile = () => {
   return (
     <div>
       <HeaderUser />
+      {/* <TextField value={FormSubmit.values['Full_Name']} onChange={(e) => FormSubmit.setFieldValue('Full_Name', e.target.value)}/> */}
       <ContainerHeading />
       <TabPanel value={value} index={0}>
-        {Profile()}
+        <Profile/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {ProfileEdit()}
+        <ProfileEdit/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        {ProfileChangePassword()}
+        <ProfileChangePassword/>
       </TabPanel>
       <Footer />
     </div>

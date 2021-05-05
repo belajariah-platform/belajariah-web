@@ -2,7 +2,7 @@ import axios from 'axios'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useState, useEffect } from 'react'
-import { RadioGroup, Radio, FormControl, FormControlLabel } from '@material-ui/core'
+import { RadioGroup, Radio, FormControl, FormControlLabel, TextField } from '@material-ui/core'
 
 import { UserAPI } from '../../api'
 import { Images } from '../../assets'
@@ -22,9 +22,9 @@ const ProfileEdit = () => {
   const [stateUser, setStateUser] = useState([])
   const [dataState, setDataState] = useState({})
   const [loadingUser, setloadingUser] = useState(true)
+  const Email = useState()
 
   const fetchDataUser = async (email) => {
-    
     try {
       setloadingUser(true)
       const response = await UserAPI.GetUser(email)
@@ -44,7 +44,7 @@ const ProfileEdit = () => {
 
   const FormSubmit = useFormik({
     initialValues: {
-      Full_Name: 'Riki',
+      Full_Name: '',
       Phone: '813191919',
       Profession: 'Intel',
       Birthday: '30 April 1999',
@@ -111,6 +111,6 @@ const ProfileEdit = () => {
       {FormContainer()}
     </div>
   )
-}
+} 
 
 export default ProfileEdit

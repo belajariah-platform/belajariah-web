@@ -29,6 +29,7 @@ const UpdateProfile = async (formData) =>  {
 }
 
 const ChangePasswordPrivate = async (formData) =>  {
+  console.log(formData, 'hai')
   try {
     // const headers = await Header()
     const response = await axios.put(`
