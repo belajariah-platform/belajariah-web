@@ -106,7 +106,7 @@ const TextInput = (props) => {
               fontSize: 12
             }
           }} />
-      ) : props.name == 'Password' || props.name == 'Confirm_Password' || props.name == 'New_Password' ? (
+      ) : props.name == 'Password' || props.name == 'Confirm_Password' || props.name == 'New_Password' || props.name == 'Old_Password' ? (
         <TextField
           size='small'
           variant='outlined'
