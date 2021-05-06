@@ -47,22 +47,12 @@ const ProfileEdit = () => {
       Full_Name: '',
       Phone: '813191919',
       Profession: 'Intel',
+      Gender: 'Laki-laki',
       Birthday: '30 April 1999',
       Province: 'Sumatera Selatan',
       City: 'Asgard',
       Address: 'Plaju',
     },
-    validationSchema: Yup.object({
-      Full_Name: Yup.string().required('namerequired'),
-      Phone: Yup.string()
-        .max(11, 'max11')
-        .required('phonerequired'),
-      Profession: Yup.string().required('professionrequired'),
-      Birthday: Yup.string().required('birthdayrequired'),
-      Province: Yup.string().required('provincerequired'),
-      City: Yup.string().required('cityrequired'),
-      Address: Yup.string().required('addressrequired'),
-    }),
     onSubmit: async (values) => {
       try {
         values.Phone = values.Phone == '' ? 0 : Number('62' + values.Phone)
@@ -89,7 +79,14 @@ const ProfileEdit = () => {
             <TextInput title='Profesi' name='Profession' form={FormSubmit}/>
             <FormControl component='fieldset'>
               <p style={{ marginTop: 8, marginBottom: 0, fontSize: 12, }}>Jenis Kelamin</p>
-              <RadioGroup row aria-label='position' name='position' defaultValue='top'>
+              <RadioGroup row aria-label='position' name='position' defaultValue='top'
+              onSelect={FormSubmit
+                .values['Gender'] != 'Laki-laki' ? 1 : 0}
+              onChange={(e) => FormSubmit
+                .setFieldValue('Gender', e == 0 ?
+                  'Laki-laki' : 'Perempuan'
+                )}
+              >
                 <FormControlLabel value='laki_laki' control={<Radio color='primary' />} style={{ fontSize: 10 }} label='Laki-laki' />
                 <FormControlLabel value='perempuan' control={<Radio color='primary' />} style={{ fontSize: 10 }} label='Perempuan' />
               </RadioGroup>
