@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
 
+import { UserAPI } from '../../../api'
 import { Images } from '../../../assets'
+import { Response } from '../../../utils'
 import styles from '../../../assets/css/auth.module.css'
 import { BackgroundAuth, CardForm, TextInput, Buttons, Loading, AlertForm } from '../../../components'
 import { Gap, Logo, Title, Subtitle, DividerText, ImageMail, ContainerButton, ContainerGoogle } from './auth-register.styled'
@@ -48,19 +50,14 @@ const Register = (props) => {
 
       try {
         setLoadingButton(true)
-        console.log(values)
-        const response = await axios.post('http://dev.belajariah.com:3004/register', body)
-
+        const response = await UserAPI.SignUp(body)
         setResult(response)
-        console.log(response)
-
-        setLoadingButton(false)
-
-        if(response.data.result) {
+        if(response.status == Response.SUCCESS) {
           setSubmit(true)
           form.resetForm()
           alert('isi form register success')
         }
+        setLoadingButton(false)
       } catch(error) {
         setLoadingButton(false)
         return error

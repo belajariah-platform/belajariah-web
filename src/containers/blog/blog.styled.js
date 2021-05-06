@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Content = styled.div`
  width: 100%;
  height: auto;
- padding: 8% 10% 2%;
+ padding: 9% 10% 2%;
 `
 
 export const ContentBlog = styled.div`
