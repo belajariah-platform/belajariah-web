@@ -32,12 +32,9 @@ import {
 
 const Profile = () => {
   const [value, setValue] = useState(0)
-  const [result, setResult] = useState({})
-  const [submit, setSubmit] = useState(false)
   const [stateUser, setStateUser] = useState([])
   const [dataState, setDataState] = useState({})
   const [loadingUser, setloadingUser] = useState(true)
-  const [str, setStr] = useState('')
 
   const fetchDataUser = async (email) => {
     email = 'herryheryanto22@gmail.com'
@@ -53,16 +50,6 @@ const Profile = () => {
       return err
     }
   }
-
-  const FormSubmit = useFormik({
-    initialValues: {
-      Full_Name: '',
-    },
-    onSubmit: async (values) => {
-
-    }
-  })
-
 
   useEffect(() => {
     fetchDataUser(dataState)
@@ -226,7 +213,6 @@ const Profile = () => {
   return (
     <div>
       <HeaderUser />
-      {/* <TextField value={FormSubmit.values['Full_Name']} onChange={(e) => FormSubmit.setFieldValue('Full_Name', e.target.value)}/> */}
       <ContainerHeading />
       <TabPanel value={value} index={0}>
         <Profile/>
