@@ -8,6 +8,7 @@ import Blog from './blog'
 import Package from './package'
 import Profile from './profile'
 import Dashboards from './dashboard'
+import { Blog, BlogDetail } from './blog'
 
 export {
   Blog,
@@ -17,5 +18,6 @@ export {
   Package,
   Register,
   Recovery,
+  BlogDetail,
   Dashboards,
 }

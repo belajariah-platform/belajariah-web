@@ -2,10 +2,8 @@ import axios from 'axios'
 import * as Yup from 'yup'
 import Link from 'next/link'
 import { useFormik } from 'formik'
-import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { Images } from '../../../assets'
-import styles from '../../../assets/css/auth.module.css'
 import {
   Buttons,
   Loading,
@@ -27,6 +25,10 @@ import {
   ImageForgotPass,
   ContainerRecovery,
 } from './auth-recovery.styled'
+import { UserAPI } from '../../../api'
+import { Images } from '../../../assets'
+import { Response } from '../../../utils'
+import styles from '../../../assets/css/auth.module.css'
 
 const Recovery = (props) => {
   const data = {
@@ -50,24 +52,17 @@ const Recovery = (props) => {
         .required('emailrequired'),
     }),
     onSubmit: async (values, form) => {
-      const body = {
-        'Email' : values.Email,
-      }
-
       try {
-        console.log(values)
         setLoadingButton(true)
-        const response = await axios.put('http://dev.belajariah.com:3004/reset_verification', body)
+        const response = await UserAPI.ResetVerification(values)
         console.log(response)
-
-        if(response.data.result) {
+        if(response.status == Response.SUCCESS) {
           alert('isi data email success')
           form.resetForm()
           setSubmit(s => ({ ...s, email : true }))
         } else {
           alert('gagal')
         }
-
         setLoadingButton(false)
       } catch(error) {
         setLoadingButton(false)
@@ -96,19 +91,16 @@ const Recovery = (props) => {
       }
 
       try {
-        console.log(values)
         setLoadingButton(true)
-        const response = await axios.put('http://dev.belajariah.com:3004/change_password_public', body)
+        const response = await UserAPI.ChangePasswordPublic(body)
         console.log(response)
-
-        if(response.data.result) {
+        if(response.status == Response.SUCCESS) {
           alert('ganti password success')
           form.resetForm()
           setSubmit(s => ({ ...s, reset : true }))
         } else {
           alert('gagal')
         }
-
         setLoadingButton(false)
       } catch(error) {
         setLoadingButton(false)

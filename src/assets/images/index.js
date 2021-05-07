@@ -52,6 +52,17 @@ export default {
   IconClear: require('./IconClear.svg'),
   IconVectorGrey: require('./IconVectorGrey.svg'),
 
+  //Blog Detail
+  IconCopy: require('./IconCopy.svg'),
+  IconShare: require('./IconShare.svg'),
+  IconFbSolid: require('./IconFbSolid.svg'),
+  IconWaSolid: require('./IconWASolid.svg'),
+  IconBlogNext: require('./IconBlogNext.svg'),
+  IconBlogPrev: require('./IconBlogPrev.svg'),
+  IconTelegram: require('./IconTelegram.svg'),
+  IconInstaSolid: require('./IconInstaSolid.svg'),
+  DummyBlogDetail: require('./DummyBlogDetail.png'),
+
   //Navbar Image
   IconHelp: require('./IconHelp.svg'),
   IconExit: require('./IconExit.svg'),

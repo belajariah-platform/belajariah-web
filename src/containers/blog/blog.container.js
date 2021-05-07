@@ -1,7 +1,3 @@
-import moment from 'moment'
-import 'moment/locale/id'
-import { useEffect, useRef, useState } from 'react'
-import { Pagination } from '@material-ui/lab'
 import {
   Grow,
   Card,
@@ -13,6 +9,11 @@ import {
   CardContent,
   ClickAwayListener,
 } from '@material-ui/core'
+import moment from 'moment'
+import 'moment/locale/id'
+import Link from 'next/link'
+import { Pagination } from '@material-ui/lab'
+import { useEffect, useRef, useState } from 'react'
 
 import {
   Clear,
@@ -243,8 +244,8 @@ const Blog = () => {
                   border: '1px solid #C4C4C4',
                   transformOrigin: placement = 'right' }}>
                 <Paper className={styles.containerSearch} elevation={0} style={{ borderRadius: 10, marginRight: '3.5%' }}>
-                  <IconButton>
-                    <Search src={Images.IconSearch} onClick={handleSubmit}/>
+                  <IconButton onClick={handleSubmit}>
+                    <Search src={Images.IconSearch}/>
                   </IconButton>
                   <InputBase
                     id='SearchInput'
@@ -253,16 +254,16 @@ const Blog = () => {
                     className={styles.input}
                     onKeyDown={handleSearchKeyDown}
                   />
-                  <IconButton>
-                    <Clear src={Images.IconClear} onClick={handleClear}/>
+                  <IconButton onClick={handleClear}>
+                    <Clear src={Images.IconClear}/>
                   </IconButton>
                 </Paper>
               </Grow>
             )}
           </Popper>
         ) : (
-          <IconButton style={{ marginRight: '2.5%' }}>
-            <Search src={Images.IconSearch} onClick={handleShowSearch} />
+          <IconButton style={{ marginRight: '2.5%' }} onClick={handleShowSearch}>
+            <Search src={Images.IconSearch} />
           </IconButton>
         )}
       </div>
@@ -296,7 +297,9 @@ const Blog = () => {
                 </CardContent>
               </Card>
               <div className={styles.cardButton}>
-                <Buttons width={'56%'} height={'32px'} padding={'0% 5%'}>Baca Selengkapnya</Buttons>
+                <Link href={'/blog/' + value.ID}>
+                  <Buttons width={'56%'} height={'32px'} padding={'0% 5%'}>Baca Selengkapnya</Buttons>
+                </Link>
               </div>
             </div>
           )
