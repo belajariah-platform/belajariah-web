@@ -33,7 +33,7 @@ const ChangePasswordPublic = async (formData) =>  {
     const response = await axios.put(`
       ${Config.BELAJARIAH_MAIN_SERVICE}/change_password_public`,
     formData,
-    //headers
+      //headers
 
     )
     return response

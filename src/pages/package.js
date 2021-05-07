@@ -1,3 +1,3 @@
-import {Package} from '../containers'
+import { Package } from '../containers'
 
 export default Package

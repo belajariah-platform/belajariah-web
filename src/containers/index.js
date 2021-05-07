@@ -4,7 +4,6 @@ import {
   Register,
   Recovery,
 } from './auth'
-import Blog from './blog'
 import Package from './package'
 import Profile from './profile'
 import Dashboards from './dashboard'

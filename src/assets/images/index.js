@@ -85,7 +85,7 @@ export default {
   IconProfession: require('./IconProfession.svg'),
   ChangePasswordIllustration: require('./ChangePasswordIllustration.svg'),
 
-  //Package Image 
+  //Package Image
   IconWebinar: require('./IconWebinar.svg'),
   IconAccessVideo: require('./IconAccessVideo.svg'),
   IconConsultation: require('./IconConsultation.svg'),
