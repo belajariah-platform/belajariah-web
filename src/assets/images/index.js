@@ -73,4 +73,10 @@ export default {
   IconAddress: require('./IconAddress.svg'),
   IconProfession: require('./IconProfession.svg'),
   ChangePasswordIllustration: require('./ChangePasswordIllustration.svg'),
+
+  //Package Image 
+  IconWebinar: require('./IconWebinar.svg'),
+  IconAccessVideo: require('./IconAccessVideo.svg'),
+  IconConsultation: require('./IconConsultation.svg'),
+  IconTrianglePurple: require('./IconTrianglePurple.svg'),
 }

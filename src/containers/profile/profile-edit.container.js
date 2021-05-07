@@ -80,12 +80,12 @@ const ProfileEdit = () => {
             <FormControl component='fieldset'>
               <p style={{ marginTop: 8, marginBottom: 0, fontSize: 12, }}>Jenis Kelamin</p>
               <RadioGroup row aria-label='position' name='position' defaultValue='top'
-              onSelect={FormSubmit
-                .values['Gender'] != 'Laki-laki' ? 1 : 0}
-              onChange={(e) => FormSubmit
-                .setFieldValue('Gender', e == 0 ?
-                  'Laki-laki' : 'Perempuan'
-                )}
+                onSelect={FormSubmit
+                  .values['Gender'] != 'Laki-laki' ? 1 : 0}
+                onChange={(e) => FormSubmit
+                  .setFieldValue('Gender', e == 0 ?
+                    'Laki-laki' : 'Perempuan'
+                  )}
               >
                 <FormControlLabel value='laki_laki' control={<Radio color='primary' />} style={{ fontSize: 10 }} label='Laki-laki' />
                 <FormControlLabel value='perempuan' control={<Radio color='primary' />} style={{ fontSize: 10 }} label='Perempuan' />
