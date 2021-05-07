@@ -4,7 +4,9 @@ import Link from 'next/link'
 import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
 
+import { UserAPI } from '../../../api'
 import { Images } from '../../../assets'
+import { Response } from '../../../utils'
 import styles from '../../../assets/css/auth.module.css'
 import { Logo, DividerText, ContainerGoogle } from './auth-login.styled'
 import { AlertForm, BackgroundAuth, CardForm, TextInput, Buttons, Loading } from '../../../components'
@@ -27,17 +29,17 @@ const Login = (props) => {
         .required('passrequired'),
     }),
     onSubmit: async (values, form) => {
-      const body = {
-        'Email' : values.Email,
-        'Password' : values.Password,
-      }
-
       try {
-        const response = await axios.post('http://dev.belajariah.com:3004/login', body)
-        alert('isi form login success')
-        form.resetForm()
-        setResult(response)
-        console.log(result)
+        const response = await UserAPI.SignIn(values)
+        if (response.status === Response.SUCCESS) {
+          setResult(response)
+          if (response.data.result) {
+            alert('Login sukses')
+            form.resetForm()
+          }
+        } else {
+          alert('Login gagal')
+        }
       } catch(error) {
         return error
       }

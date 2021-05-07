@@ -1,11 +1,11 @@
 import axios from 'axios'
-// import { Config, Header } from '../config'
+import { Config } from '../config'
 
 const GetAllStory = async (skip, take, filters) =>  {
   try {
     // const headers = await Header()
     const response = await axios.get(`
-    http://dev.belajariah.com:3004/stories?skip=${skip}&take=${take}&filter=${filters}`,
+    ${Config.BELAJARIAH_MAIN_SERVICE}/stories?skip=${skip}&take=${take}&filter=${filters}`,
     // headers
     )
     return response

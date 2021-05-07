@@ -4,7 +4,7 @@ import {
   Register,
   Recovery,
 } from './auth'
-import Blog from './blog'
+import { Blog, BlogDetail } from './blog'
 import Dashboards from './dashboard'
 
 export {
@@ -13,5 +13,6 @@ export {
   Verify,
   Register,
   Recovery,
+  BlogDetail,
   Dashboards,
 }
