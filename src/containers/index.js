@@ -4,7 +4,7 @@ import {
   Register,
   Recovery,
 } from './auth'
-import Blog from './blog'
+import { Blog, BlogDetail } from './blog'
 import Dashboards from './dashboard'
 import Profile from './profile'
 
@@ -15,5 +15,6 @@ export {
   Profile,
   Register,
   Recovery,
+  BlogDetail,
   Dashboards,
 }

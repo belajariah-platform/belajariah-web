@@ -1,4 +1,13 @@
 import { Response } from './responses'
-import { ResponsiveClass, ResponsivePromo } from './responsive'
+import {
+  ResponsiveBlog,
+  ResponsiveClass,
+  ResponsivePromo,
+} from './responsive'
 
-export { Response, ResponsiveClass, ResponsivePromo }
+export {
+  Response,
+  ResponsiveBlog,
+  ResponsiveClass,
+  ResponsivePromo,
+}

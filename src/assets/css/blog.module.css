@@ -67,3 +67,9 @@
     margin-left: 24px;
     border-radius: 24px;
 }
+
+.cardBlogDetail {
+    width: 75%;
+    position: relative;
+    margin: 32px 0 32px 52px;
+}

@@ -451,7 +451,7 @@ const Dashboards = () => {
           })}
         </ViewInspiratifStory>
         <ViewButton>
-          <a href='#'><ButtonInspiratif>Bacaan Lainnya</ButtonInspiratif></a>
+          <a href='/blog'><ButtonInspiratif>Bacaan Lainnya</ButtonInspiratif></a>
         </ViewButton>
       </ContainerInspiratifStory>
     )
