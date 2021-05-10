@@ -96,12 +96,56 @@ const CheckEmail = async (email) =>  {
   }
 }
 
+const GetUser = async (email) =>  {
+  try {
+    // const headers = await Header()
+    const response = await axios.get(`
+    http://dev.belajariah.com:3004/user/${email}`,
+    // headers
+    )
+    return response
+  } catch (error) {
+    return error
+  }
+}
+
+const UpdateProfile = async (formData) =>  {
+  try {
+    // const headers = await Header()
+    const response = await axios.put(`
+    http://dev.belajariah.com:3004/user`,
+    formData,
+    // headers
+    )
+    return response
+  } catch (error) {
+    return error
+  }
+}
+
+const ChangePasswordPrivate = async (formData) =>  {
+  try {
+    const headers = await Header()
+    const response = await axios.put(`
+    ${Config.BELAJARIAH_SERVICE_ENDPOINT}/change_password_private`,
+    formData,
+    headers
+    )
+    return response
+  } catch (error) {
+    return error
+  }
+}
+
 export default {
   SignIn,
   SignUp,
+  GetUser,
   CheckEmail,
   VerifyEmail,
   VerifyAccount,
+  UpdateProfile,
   ResetVerification,
   ChangePasswordPublic,
+  ChangePasswordPrivate,
 }

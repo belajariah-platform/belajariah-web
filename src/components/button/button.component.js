@@ -10,6 +10,7 @@ const Buttons = (props) => {
       height={props.height}
       padding={props.padding}
       onClick={props.onClick}
+      fontSize={props.fontSize}
       backgroundColor={props.backgroundColor}>
       {props.children}
     </ButtonLogin>
@@ -23,6 +24,7 @@ Buttons.propTypes = {
   color: PropTypes.string,
   title: PropTypes.string,
   padding: PropTypes.string,
+  fontSize: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
