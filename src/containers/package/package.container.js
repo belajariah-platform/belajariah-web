@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { Images } from '../../assets'
-import { PackageAPI} from '../../api'
-import { Response, FormatRupiah} from '../../utils'
+import { PackageAPI } from '../../api'
+import { Response, FormatRupiah } from '../../utils'
 import { HeaderUser, Footer, Buttons } from '../../components'
 import {
   LineTxt,
@@ -32,11 +32,11 @@ const Package = () => {
   const fetchDataPackage = async (state, code) => {
     try {
       let { skip, take, filterString } = state
-      filterString=`[{"type": "text", "field" : "class_code", "value": "CLC00000001"}]`
+      filterString='[{"type": "text", "field" : "class_code", "value": "CLC00000001"}]'
       const response = await PackageAPI.GetAllPackage(skip, take, filterString)
       if (response.status === Response.SUCCESS) {
         setStatePackage(response.data.data)
-      } 
+      }
       console.log(response)
     } catch (err) {
       return err

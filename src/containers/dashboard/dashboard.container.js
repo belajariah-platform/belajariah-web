@@ -59,9 +59,11 @@ import {
   ClassAPI,
   StoryAPI,
   RatingAPI,
+  PackageAPI,
   PromotionAPI
 } from '../../api'
 import {
+  FormatRupiah,
   ResponsiveClass,
   ResponsivePromo,
 } from '../../utils'
@@ -75,6 +77,7 @@ const Dashboards = () => {
   const [stateStory, setStateStory] = useState([])
   const [stateClass, setStateClass] = useState([])
   const [stateRating, setStateRating] = useState([])
+  const [statePackage, setStatePackage] = useState([])
   const [statePromotion, setStatePromotion] = useState([])
 
   const [loadingEnum, setloadingEnum] = useState(true)
@@ -82,8 +85,8 @@ const Dashboards = () => {
   const [loadingStory, setloadingStory] = useState(true)
   const [loadingPromo, setloadingPromo] = useState(true)
   const [loadingRating, setloadingRating] = useState(true)
-  const [dataState, setDataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
   const [dataStates] = useState({ skip: 0, take: 7, filter: [], filterString: '[]' })
+  const [dataState, setDataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
 
   const ClassCategory = [
     { id: 1, name: 'Al-Quran', IconClassCategory: Images.IconAlQuran },
@@ -103,6 +106,20 @@ const Dashboards = () => {
       setloadingClass(false)
     } catch (err) {
       setloadingClass(false)
+      return err
+    }
+  }
+
+  const fetchDataPackage = async (state, code) => {
+    try {
+      let { skip, take, filterString } = state
+      filterString='[{"type": "text", "field" : "class_code", "value": "CLC00000001"}]'
+      const response = await PackageAPI.GetAllPackage(skip, take, filterString)
+      if (response.status === Response.SUCCESS) {
+        setStatePackage(response.data.data)
+      }
+      console.log(response.data.data)
+    } catch (err) {
       return err
     }
   }
@@ -179,6 +196,7 @@ const Dashboards = () => {
     fetchDataEnum(dataState)
     fetchDataStory(dataState)
     fetchDataRating(dataState)
+    fetchDataPackage(dataState)
     fetchDataPromotion(dataState)
   }, [])
 
@@ -293,8 +311,8 @@ const Dashboards = () => {
                             <div><img src={Images.IconStar} width={100} /></div>
                             <div className={styles.LineClass}><hr></hr></div>
                             <ViewPrice>
-                              <div className={styles.PriceClassOld}><p><s>Rp.400.000 - 1.500.000</s></p></div>
-                              <div className={styles.PriceClassNew}><p>Rp.199.000 - 999.000</p></div>
+                              <div className={styles.PriceClassOld}><p><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></p></div>
+                              <div className={styles.PriceClassNew}><p>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</p></div>
                               <div className={styles.ButtonClass}>
                                 <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
                               </div>

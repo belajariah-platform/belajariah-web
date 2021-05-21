@@ -4,6 +4,7 @@ import ClassAPI from './class'
 import StoryAPI from './story'
 import RatingAPI from './rating'
 import PackageAPI from './package'
+import LearningAPI from './learning'
 import PromotionAPI from './promotion'
 
 export {
@@ -13,5 +14,6 @@ export {
   StoryAPI,
   RatingAPI,
   PackageAPI,
+  LearningAPI,
   PromotionAPI,
 }
