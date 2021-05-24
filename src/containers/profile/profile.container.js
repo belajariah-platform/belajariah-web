@@ -1,8 +1,7 @@
 import moment from 'moment'
-import { useFormik } from 'formik'
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { Tab, Tabs, AppBar, Box, Typography, TextField } from '@material-ui/core'
+import { Tab, Tabs, AppBar, Box, Typography } from '@material-ui/core'
 
 import { UserAPI } from '../../api'
 import { Images } from '../../assets'

@@ -103,4 +103,21 @@ export default {
   BgTransactDetail: require('./BgTransactDetail.png'),
   BgTransactMethod: require('./BgTransactMethod.png'),
   ILTransactVoucher: require('./ILTransactVoucher.svg'),
+  //Class About Image
+  IconClose: require('./IconClose.svg'),
+  IconMaterial: require('./IconMaterial.svg'),
+  IconStarWhite: require('./IconStarWhite.svg'),
+  IconAccessGrup: require('./IconAccessGrup.svg'),
+  ImgUstadzMaulana: require('./ImgUstadzMaulana.png'),
+  IconCardBenefits: require('./IconCardBenefits.svg'),
+  ImgThumbnailClass: require('./ImgThumbnailClass.png'),
+  IconBenefitsTopic: require('./IconBenefitsTopic.svg'),
+  IconCertificateBlack: require('./IconCertificateBlack.svg'),
+  BackgroundClassAbout: require('./BackgroundClassAbout.png'),
+
+  //Class Instructor Image
+  ImgUstadzLarge: require('./ImgUstadzLarge.png'),
+
+  //Class Rating Image
+  ImgReviewer: require('./ImgReviewer.png'),
 }

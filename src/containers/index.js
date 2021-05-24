@@ -13,6 +13,7 @@ import {
 import Profile from './profile'
 import Package from './package'
 import Dashboards from './dashboard'
+import { ClassDetail } from './class'
 import { Blog, BlogDetail } from './blog'
 
 export {
@@ -25,6 +26,7 @@ export {
   Recovery,
   BlogDetail,
   Dashboards,
+  ClassDetail,
   TransactionMethod,
   TransactionDetail,
   TransactionUpload,

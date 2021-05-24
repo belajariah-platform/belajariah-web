@@ -127,7 +127,7 @@ const ChangePasswordPrivate = async (formData) =>  {
   try {
     // const headers = await Header()
     const response = await axios.put(`
-    ${Config.BELAJARIAH_SERVICE_ENDPOINT}/change_password_private`,
+    http://dev.belajariah.com:3004/change_password_private`,
     formData,
     // headers
     )
