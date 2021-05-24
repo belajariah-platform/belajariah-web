@@ -90,4 +90,17 @@ export default {
   IconAccessVideo: require('./IconAccessVideo.svg'),
   IconConsultation: require('./IconConsultation.svg'),
   IconTrianglePurple: require('./IconTrianglePurple.svg'),
+
+  //Transaction
+  IconBca: require('./IconBca.svg'),
+  IconBri: require('./IconBri.svg'),
+  IconBsi: require('./IconBsi.svg'),
+  IconOvo: require('./IconOvo.svg'),
+  IconGopay: require('./IconGopay.svg'),
+  IconMandiri: require('./IconMandiri.svg'),
+  IconAlfamart: require('./IconAlfamart.svg'),
+  IconIndomaret: require('./IconIndomaret.svg'),
+  BgTransactDetail: require('./BgTransactDetail.png'),
+  BgTransactMethod: require('./BgTransactMethod.png'),
+  ILTransactVoucher: require('./ILTransactVoucher.svg'),
 }

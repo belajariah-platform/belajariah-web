@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import rootReducer from './reducers'
+import rootReducer from './reducer'
 
 const persistConfig = {
   key: 'root',

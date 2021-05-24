@@ -32,7 +32,7 @@ const Header = (props) => {
   ]
 
   const MenusProfile = [
-    { id: 1, TxtMenus: 'Profile', IconMenus: Images.IconProfile, route : '#' },
+    { id: 1, TxtMenus: 'Profile', IconMenus: Images.IconProfile, route : '/profile' },
     { id: 2, TxtMenus: 'Kelas Saya', IconMenus: Images.IconClass, route : '#' },
     { id: 3, TxtMenus: 'Bantuan', IconMenus: Images.IconHelp, route : '#' },
     { id: 4, TxtMenus: 'Keluar', IconMenus: Images.IconExit, route : '#' },

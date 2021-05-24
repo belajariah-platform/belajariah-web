@@ -125,11 +125,11 @@ const UpdateProfile = async (formData) =>  {
 
 const ChangePasswordPrivate = async (formData) =>  {
   try {
-    const headers = await Header()
+    // const headers = await Header()
     const response = await axios.put(`
     ${Config.BELAJARIAH_SERVICE_ENDPOINT}/change_password_private`,
     formData,
-    headers
+    // headers
     )
     return response
   } catch (error) {

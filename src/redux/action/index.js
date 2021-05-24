@@ -46,6 +46,8 @@ import {
   TRANSACT_USER_LIST_SUCC,
   TRANSACT_USER_LIST_FAIL,
   TRANSACT_USER_LOAD_SCROLL,
+  TRANSACT_USER_CHOOSE_PKG,
+  TRANSACT_USER_CHOOSE_METHOD,
 } from './transaction'
 // ============================ STORY ===========================
 import {
@@ -114,6 +116,8 @@ export {
   TRANSACT_USER_LIST_SUCC,
   TRANSACT_USER_LIST_FAIL,
   TRANSACT_USER_LOAD_SCROLL,
+  TRANSACT_USER_CHOOSE_PKG,
+  TRANSACT_USER_CHOOSE_METHOD,
   // =========================== STORY ===========================
   STORY_LIST_REQ,
   STORY_LIST_SUCC,

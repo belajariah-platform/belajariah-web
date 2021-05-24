@@ -4,7 +4,9 @@ import ClassAPI from './class'
 import StoryAPI from './story'
 import RatingAPI from './rating'
 import PackageAPI from './package'
+import PaymentAPI from './payment'
 import PromotionAPI from './promotion'
+import PaymentMethodAPI from './payment-method'
 
 export {
   UserAPI,
@@ -13,5 +15,7 @@ export {
   StoryAPI,
   RatingAPI,
   PackageAPI,
+  PaymentAPI,
   PromotionAPI,
+  PaymentMethodAPI,
 }
