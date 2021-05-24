@@ -4,10 +4,11 @@ import {
   Register,
   Recovery,
 } from './auth'
-import { Blog, BlogDetail } from './blog'
-import Dashboards from './dashboard'
 import Profile from './profile'
 import Package from './package'
+import Dashboards from './dashboard'
+import { Blog, BlogDetail } from './blog'
+import { ClassDetail } from './class'
 
 export {
   Blog,
@@ -19,4 +20,5 @@ export {
   Recovery,
   BlogDetail,
   Dashboards,
+  ClassDetail,
 }
