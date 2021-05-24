@@ -170,7 +170,7 @@ export const ThumbnailVideo = styled.img`
     width: 500px;
     height: 300px;
     cursor: pointer;
-    margin: 0px 0px 0px 0px;`
+    margin: 10px 0px 0px 0px;`
 
 export const ViewDescVideo = styled.div`
     display: flex;

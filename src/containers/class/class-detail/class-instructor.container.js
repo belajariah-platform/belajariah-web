@@ -13,8 +13,8 @@ import {
   ViewDescHeading,
   ContainerInstructor,
 } from './class-instructor.styled'
-import { Images } from '../../../assets'
 import { ClassAPI } from '../../../api'
+import { Images } from '../../../assets'
 import { Response } from '../../../utils'
 
 const ClassInstructor = () => {
@@ -44,7 +44,7 @@ const ClassInstructor = () => {
         {stateClass.map((item, index) => {
           return (
             <ViewHeading key={index}>
-              <div style={{ display: 'flex' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
                 <ImgUstadz src={Images.ImgUstadzLarge} />
                 <ViewDescHeading >
                   <TitleInstructor>{item.Instructor_Name}</TitleInstructor>

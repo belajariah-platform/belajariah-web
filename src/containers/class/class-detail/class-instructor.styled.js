@@ -10,7 +10,7 @@ export const ContainerInstructor = styled.div`
     css`
     @media (max-width: 768px) {
         width: 100%;
-        padding: 55% 10% 25% 10%;
+        padding: 1% 10% 2% 10%;
         }
     `}`
 
@@ -35,16 +35,16 @@ export const ViewDescHeading = styled.div`
 
 export const TitleInstructor = styled.p`
     color: #343434;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    margin: 0px 0px 0px 0px;`
+    margin: 0px 0px 5px 0px;`
 
 export const DescInstructor = styled.p`
     color: #343434;
     font-size: 18px;
     font-weight: 400;
     margin: 0px 0px 0px 0px;
-    padding: 0px 240px 0px 0px;`
+    padding: 0px 550px 0px 0px;`
 
 export const ViewDesc = styled.div`
     margin: 50px 0px 0px 0px;`

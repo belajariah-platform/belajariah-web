@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
@@ -71,6 +72,7 @@ import styles from '../../assets/css/dashboards.module.css'
 
 const Dashboards = () => {
   const islogin = true
+  const router = useRouter()
   const [selectedTab, setSelectedTab] = useState(0)
 
   const [stateEnum, setStateEnum] = useState([])
@@ -190,6 +192,10 @@ const Dashboards = () => {
       ...dataState,
       filterString : `[{"type": "text", "field" : "Class_Name", "value": "${event.target.value}"}]`
     })
+  }
+
+  const HandleBtn = () => {
+    router.push('class/detail')
   }
 
   useEffect(() => {
@@ -314,7 +320,7 @@ const Dashboards = () => {
                               <div className={styles.PriceClassOld}><p><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></p></div>
                               <div className={styles.PriceClassNew}><p>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</p></div>
                               <div className={styles.ButtonClass}>
-                                <a href='#'><button style={{ backgroundColor:'#65C6E6', }}>Beli Kelas Sekarang</button></a>
+                                <button onClick={HandleBtn} style={{ backgroundColor:'#65C6E6', cursor: 'pointer' }}>Beli Kelas Sekarang</button>
                               </div>
                             </ViewPrice>
                           </TxtCardClass>

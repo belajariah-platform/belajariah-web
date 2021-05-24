@@ -1,7 +1,8 @@
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Rating from '@material-ui/lab/Rating'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { Accordion, AccordionSummary, AccordionDetails, Dialog, withStyles, DialogContentText } from '@material-ui/core'
+import { Accordion, AccordionSummary, AccordionDetails, Dialog, } from '@material-ui/core'
 
 import {
   ImgCard,
@@ -44,6 +45,7 @@ import { LearningAPI, ClassAPI, PackageAPI } from '../../../api'
 import { FormatRupiah, Response, TimeConvertToHour } from '../../../utils'
 
 const ClassAbout = () => {
+  const router = useRouter()
   const [state, setState] = useState([])
   const [count, setCount] = useState([])
   const [stateClass, setStateClass] = useState([])
@@ -106,6 +108,10 @@ const ClassAbout = () => {
     setOpen(false)
   }
 
+  const HandleBtn = () => {
+    router.push('/package')
+  }
+
   const BenefitsCategory = [
     { id: 1, ValueBenefits: 'Akses Video Selamanya', BenefitsIcon: Images.IconAccessVideo },
     { id: 2, ValueBenefits: 'Webinar', BenefitsIcon: Images.IconWebinar },
@@ -120,15 +126,15 @@ const ClassAbout = () => {
       <Dialog
         open={open}
         style={{ backgroundColor: '#0f1223e6' }}
-        maxWidth={630}>
+        maxWidth='lg'>
         <ImgCloseDialog onClick={handleClose} src={Images.IconClose} />
         <VideoHeading>
-          <HeadingVideo autoPlay>
+          <HeadingVideo autoPlay controls>
             <source src='https://www.belajariah.com/video_pembelajaran/TrailerMini.mp4' type='video/mp4' />
           </HeadingVideo>
           <ViewDescVideo>
             <TxtDescVideo>Belajar Al-Qur’an dari dasar dengan metode yang mudah dan menyenangkan.</TxtDescVideo>
-            <Buttons width={'300px'} height={'50px'} fontSize={'14px'} padding={'0% 2%'} backgroundColor={'#FF8E26'}>BELAJAR SEKARANG</Buttons>
+            <Buttons onClick={HandleBtn} width={'300px'} height={'50px'} fontSize={'14px'} padding={'0% 2%'} backgroundColor={'#FF8E26'}>BELAJAR SEKARANG</Buttons>
           </ViewDescVideo>
         </VideoHeading>
       </Dialog>
@@ -255,7 +261,7 @@ const ClassAbout = () => {
             <TxtNewPrice>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</TxtNewPrice>
           </div>
           <div>
-            <Buttons width={'240px'} height={'65px'} fontSize={'16px'} padding={'0% 10%'} backgroundColor={'#FF8E26'}>BELAJAR SEKARANG</Buttons>
+            <Buttons width={'240px'} height={'65px'} fontSize={'16px'} padding={'0% 10%'} backgroundColor={'#FF8E26'} onClick={HandleBtn}>BELAJAR SEKARANG</Buttons>
           </div>
         </ViewPrice>
       </ContainerPrice>
