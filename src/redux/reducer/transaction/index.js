@@ -1,6 +1,7 @@
 import {
   TransactionReducer,
   TransactionAllReducer,
+  TransactionClassReducer,
   TransactionAcceptReducer,
   TransactionDeclineReducer,
 } from './transaction.reducer'
@@ -8,6 +9,7 @@ import {
 export {
   TransactionReducer,
   TransactionAllReducer,
+  TransactionClassReducer,
   TransactionAcceptReducer,
   TransactionDeclineReducer,
 }

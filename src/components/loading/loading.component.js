@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import styles from '../../assets/css/loading.module.css'
 
 const Loading = (props) => {
@@ -9,10 +11,19 @@ const Loading = (props) => {
       </div>
     ) : (
       props.type == 'button' && (
-        <div className={styles.loaderButton}/>
+        props.color == 'orange' ? (
+          <div className={styles.loaderButtonOrange}/>
+        ) : (
+          <div className={styles.loaderButton}/>
+        )
       )
     )
   )
+}
+
+Loading.propTypes = {
+  type : PropTypes.string,
+  color: PropTypes.string,
 }
 
 export default Loading

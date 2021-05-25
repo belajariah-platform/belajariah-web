@@ -1,4 +1,3 @@
-import axios from 'axios'
 import * as Yup from 'yup'
 import Link from 'next/link'
 import { useFormik } from 'formik'

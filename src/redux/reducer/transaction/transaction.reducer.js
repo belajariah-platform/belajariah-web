@@ -15,6 +15,8 @@ import {
   TRANSACT_USER_LIST_SUCC,
   TRANSACT_USER_LIST_FAIL,
   TRANSACT_USER_LOAD_SCROLL,
+  TRANSACT_USER_CHOOSE_PKG,
+  TRANSACT_USER_CHOOSE_METHOD,
 } from '../../action'
 
 const initialState = {
@@ -26,6 +28,8 @@ const initialState = {
   loadingDeclineScroll: false,
   loadingAll: false,
   loadingAllScroll: false,
+  classes: {},
+  paymentData: {},
 }
 
 const TransactionReducer = (state = { ...initialState }, action) => {
@@ -144,9 +148,27 @@ const TransactionDeclineReducer = (state = { ...initialState }, action) => {
   }
 }
 
+const TransactionClassReducer = (state = { ...initialState }, action) => {
+  switch(action.type) {
+  case TRANSACT_USER_CHOOSE_PKG:
+    return {
+      ...state,
+      classes: action.classes
+    }
+  case TRANSACT_USER_CHOOSE_METHOD:
+    return {
+      ...state,
+      paymentData: action.paymentData
+    }
+  default:
+    return state
+  }
+}
+
 export {
   TransactionReducer,
   TransactionAllReducer,
+  TransactionClassReducer,
   TransactionAcceptReducer,
   TransactionDeclineReducer,
 }

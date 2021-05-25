@@ -27,7 +27,7 @@ export const ContainerLogin = styled.div`
 export const ContainerLogoIcon = styled.div`
     width: 90px;
     height: 90px;
-    margin: -84px auto 0px auto;
+    margin: -84px auto 2px auto;
     text-align: center;
     position: relative;
     border-radius: 70px;

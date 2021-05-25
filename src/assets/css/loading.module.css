@@ -66,6 +66,29 @@
     background-color: #A734C3;
 }
 
+.loaderButtonOrange {
+    width: 16px;
+    content: '';
+    height: 16px;
+    margin-left: 6px;
+    position: relative;
+    border-radius: 50%;
+    animation: load-effect 1s infinite linear;
+    box-shadow: inset 0 0 0 1.6px  rgba(255,255,255,0.2);
+    background: linear-gradient(to right,#ffffff 20%,rgba(255,255,255,0) 50%);
+}
+
+.loaderButtonOrange::after {
+    top: 1.6px;
+    left: 1.6px;
+    width: 12.8px;
+    content: '';
+    height: 12.8px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FF8E26;
+}
+
 @keyframes load-effect {
     0%{
         transform: rotate(0deg);

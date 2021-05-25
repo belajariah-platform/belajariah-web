@@ -1,0 +1,100 @@
+.containerPromo {
+    display: flex;
+    padding: 7% 0 0 2%;
+    flex-direction: row;
+    background-size: cover;
+    background-image: url('../images/BgTransactMethod.png');
+}
+
+.containerPromoInput {
+    display: flex;
+    margin-top: 24px;
+    flex-direction: row;
+}
+
+.containerDetails {
+    padding: 1% 10% 0 10%;
+}
+
+.containerMethods {
+    margin: 1% 0 0 0;
+    padding: 1% 10% 2% 10%;
+}
+
+.containerCheckout {
+    display: flex;
+    margin-top: 2%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.containerRadio {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerDetailHeader {
+    padding: 8% 10% 6% 10%;
+    background-size: cover;
+    background-image: url('../images/BgTransactDetail.png');
+}
+
+.containerPaymentGuide {
+    padding: 2% 24.5% 5% 24.5%;
+}
+
+.containerTotalPayment {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 2%;
+    border-bottom: 1px solid gray;
+}
+
+.containerRow1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerRow2 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: -2px 0;
+}
+
+.containerAccountDetail {
+    border-radius: 24px;
+    padding: 28px 56px;
+    background-color: #AFAFAF20;
+}
+
+.containerUpload {
+    padding: 10% 10% 2% 10%;
+}
+
+.containerUploadDetail {
+    padding: 0 10% 2% 10%;
+}
+
+.inputPromo {
+    border: 0;
+    width: 31%;
+    border-radius: 24px;
+    background-color: white;
+}
+
+.imgPromo {
+    width: 7%;
+    height: 7%;
+    margin: 2% 1% 0 0;
+}
+
+.imgPaymentMethod {
+    margin: 0 0 0 -8px;
+}

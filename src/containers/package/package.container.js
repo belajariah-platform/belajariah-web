@@ -1,8 +1,11 @@
+import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import { Images } from '../../assets'
 import { PackageAPI } from '../../api'
 import { Response, FormatRupiah } from '../../utils'
+import { TRANSACT_USER_CHOOSE_PKG } from '../../redux/action'
 import { HeaderUser, Footer, Buttons } from '../../components'
 import {
   LineTxt,
@@ -26,6 +29,8 @@ import {
 } from './package.styled'
 
 const Package = () => {
+  const router = useRouter()
+  const dispatch = useDispatch()
   const [statePackage, setStatePackage] = useState([])
   const [dataState] = useState({ skip: 0, take: 3, filter: [], filterString: '[]' })
 
@@ -46,6 +51,15 @@ const Package = () => {
   useEffect(() => {
     fetchDataPackage(dataState)
   }, [])
+
+  const onPackageClick = async (classes) => {
+    console.log(classes)
+    await dispatch({
+      type: TRANSACT_USER_CHOOSE_PKG,
+      classes: classes,
+    })
+    router.push('/transaction/methods')
+  }
 
   const PackageClass = () => {
     return(
@@ -80,7 +94,7 @@ const Package = () => {
                     <BenefitsIcon width={35} height={25} src={Images.IconWebinar} />
                     <TxtBenefits>Webinar {item.Webinar}x</TxtBenefits>
                   </ViewDescBenefits>
-                  <ViewButtons><Buttons fontSize={'14px'}>PILIH SEKARANG</Buttons></ViewButtons>
+                  <ViewButtons><Buttons onClick={() => onPackageClick(item)} fontSize={'14px'}>PILIH SEKARANG</Buttons></ViewButtons>
                 </ViewDescPackage>
               </ClassPackage>
             )
@@ -92,7 +106,7 @@ const Package = () => {
 
   return (
     <div>
-      <HeaderUser />
+      <HeaderUser variant='purple'/>
       <PackageClass />
       <Footer />
     </div>

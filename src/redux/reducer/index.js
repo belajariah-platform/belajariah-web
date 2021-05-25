@@ -8,6 +8,7 @@ import { UserClassReducer, UserClassDetailReducer } from './user-class'
 import {
   TransactionReducer,
   TransactionAllReducer,
+  TransactionClassReducer,
   TransactionAcceptReducer,
   TransactionDeclineReducer,
 } from './transaction'
@@ -30,6 +31,7 @@ export default combineReducers({
   TransactionAllReducer,
   ConsultationAllReducer,
   UserClassDetailReducer,
+  TransactionClassReducer,
   TransactionAcceptReducer,
   TransactionDeclineReducer,
   ConsultationAcceptReducer,

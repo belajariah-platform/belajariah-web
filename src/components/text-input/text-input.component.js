@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { TextField, TextareaAutosize } from '@material-ui/core'
 
@@ -28,38 +29,40 @@ const TextInput = (props) => {
   const errorTitle = () => {
     if(props.form && props.form.touched[props.name]) {
       switch (props.form.errors[props.name]) {
-      case 'namerequired':
-        return <ErrorMsg>Harap masukan nama anda.</ErrorMsg>
-      case 'emailrequired':
-        return <ErrorMsg>Harap masukan alamat email anda.</ErrorMsg>
-      case 'phonerequired':
-        return <ErrorMsg>Harap masukan nomor telepon anda.</ErrorMsg>
-      case 'passrequired':
-        return <ErrorMsg>Harap masukan password anda.</ErrorMsg>
-      case 'coderequired':
-        return <ErrorMsg>Harap masukan kode verifikasi</ErrorMsg>
-      case 'passmatch':
-        return <ErrorMsg>Password harus sama</ErrorMsg>
       case 'max11':
         return <ErrorMsg>Maksimal 11 angka</ErrorMsg>
       case 'min8':
         return <ErrorMsg>Minimal 8 karakter</ErrorMsg>
-      case 'invalid':
-        return <ErrorMsg>Email yang anda masukan tidak valid.</ErrorMsg>
+      case 'passmatch':
+        return <ErrorMsg>Password harus sama</ErrorMsg>
+      case 'namerequired':
+        return <ErrorMsg>Harap masukan nama anda.</ErrorMsg>
+      case 'bankrequired':
+        return <ErrorMsg>Harap masukan nama bank.</ErrorMsg>
       case 'registered':
         return <ErrorMsg>Email ini telah terdaftar.</ErrorMsg>
       case 'notregistered':
         return <ErrorMsg>Email ini tidak terdaftar.</ErrorMsg>
       case 'professionrequired':
         return <ErrorMsg>Harap masukan profesi anda.</ErrorMsg>
-      case 'provincerequired':
-        return <ErrorMsg>Harap masukan provinsi tempat tinggal anda.</ErrorMsg>
+      case 'passrequired':
+        return <ErrorMsg>Harap masukan password anda.</ErrorMsg>
+      case 'coderequired':
+        return <ErrorMsg>Harap masukan kode verifikasi</ErrorMsg>
+      case 'emailrequired':
+        return <ErrorMsg>Harap masukan alamat email anda.</ErrorMsg>
+      case 'phonerequired':
+        return <ErrorMsg>Harap masukan nomor telepon anda.</ErrorMsg>
+      case 'birthdayrequired':
+        return <ErrorMsg>Harap masukan tanggal lahir anda.</ErrorMsg>
+      case 'invalid':
+        return <ErrorMsg>Email yang anda masukan tidak valid.</ErrorMsg>
       case 'cityrequired':
         return <ErrorMsg>Harap masukan kota tempat tinggal anda.</ErrorMsg>
       case 'addressrequired':
         return <ErrorMsg>Harap masukan alamat tempat tinggal anda.</ErrorMsg>
-      case 'birthdayrequired':
-        return <ErrorMsg>Harap masukan tanggal lahir anda.</ErrorMsg>
+      case 'provincerequired':
+        return <ErrorMsg>Harap masukan provinsi tempat tinggal anda.</ErrorMsg>
       default:
         <span />
       }
@@ -81,6 +84,7 @@ const TextInput = (props) => {
           size='small'
           variant='outlined'
           style={{ width : '100%' }}
+          placeholder={props.placeholder}
           value={props.form && `${props.form.values[props.name]}`}
           onBlur={props.form && props.form.handleBlur(props.name)}
           onChange={props.form && props.form.handleChange(props.name)}
@@ -95,6 +99,7 @@ const TextInput = (props) => {
           variant='outlined'
           disabled={props.disabled}
           style={{ width : '100%' }}
+          placeholder={props.placeholder}
           value={props.disabled ? props.value : props.form && `${props.form.values[props.name]}`}
           onBlur={props.disabled ? props.value : props.form && props.form.handleBlur(props.name)}
           onChange={props.disabled ? props.value : props.form && props.form.handleChange(props.name)}
@@ -111,6 +116,7 @@ const TextInput = (props) => {
           size='small'
           variant='outlined'
           style={{ width : '100%' }}
+          placeholder={props.placeholder}
           type={showPassword? 'text' : 'password'}
           value={props.form && `${props.form.values[props.name]}`}
           onBlur={props.form && props.form.handleBlur(props.name)}
@@ -137,6 +143,7 @@ const TextInput = (props) => {
             size='small'
             value = '+62'
             variant='outlined'
+            placeholder={props.placeholder}
             style = {{ width : '17%', marginRight: 4 }}
             inputProps={{
               style: {
@@ -147,6 +154,7 @@ const TextInput = (props) => {
             size='small'
             variant='outlined'
             style={{ width : '82.5%' }}
+            placeholder={props.placeholder}
             value={props.form && `${props.form.values[props.name]}`}
             onBlur={props.form && props.form.handleBlur(props.name)}
             onChange={props.form && props.form.handleChange(props.name)}
@@ -159,10 +167,11 @@ const TextInput = (props) => {
       ) : props.name == 'Address' ? (
         <TextareaAutosize
           variant='outlined'
-          style={{ width : '100%', height: 100, borderRadius: 5, backgroundColor: 'transparent' }}
+          placeholder={props.placeholder}
           value={props.form && `${props.form.values[props.name]}`}
           onBlur={props.form && props.form.handleBlur(props.name)}
           onChange={props.form && props.form.handleChange(props.name)}
+          style={{ width : '100%', height: 100, borderRadius: 5, backgroundColor: 'transparent' }}
           inputProps={{
             style: {
               fontSize: 12,
@@ -174,6 +183,7 @@ const TextInput = (props) => {
           type='date'
           variant='outlined'
           style={{ width : '100%' }}
+          placeholder={props.placeholder}
           value={props.form && `${props.form.values[props.name]}`}
           onBlur={props.form && props.form.handleBlur(props.name)}
           onChange={props.form && props.form.handleChange(props.name)}
@@ -182,11 +192,12 @@ const TextInput = (props) => {
               fontSize: 12,
             }
           }} />
-      ) : props.name == 'Code' && (
+      ) : props.name == 'Code' ? (
         <TextField
           size='small'
           variant='outlined'
           style={{ width : '100%' }}
+          placeholder={props.placeholder}
           value={props.form && `${props.form.values[props.name]}`}
           onBlur={props.form && props.form.handleBlur(props.name)}
           onChange={props.form && props.form.handleChange(props.name)}
@@ -195,10 +206,33 @@ const TextInput = (props) => {
               fontSize: 12,
             }
           }} />
+      ) : ( props.name == 'Sender_Name' || props.name == 'Sender_Bank' ) && (
+        <TextField
+          size='medium'
+          style={{ width : '100%' }}
+          placeholder={props.placeholder}
+          value={props.form && `${props.form.values[props.name]}`}
+          onBlur={props.form && props.form.handleBlur(props.name)}
+          onChange={props.form && props.form.handleChange(props.name)}
+          inputProps={{
+            style: {
+              fontSize: 16,
+            }
+          }} />
       )
+
       }
     </>
   )
+}
+
+TextInput.propTypes = {
+  form : PropTypes.object,
+  name : PropTypes.string,
+  title : PropTypes.string,
+  value : PropTypes.string,
+  disabled : PropTypes.bool,
+  placeholder : PropTypes.string,
 }
 
 export default TextInput
