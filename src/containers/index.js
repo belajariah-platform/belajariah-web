@@ -13,7 +13,10 @@ import {
 import Profile from './profile'
 import Package from './package'
 import Dashboards from './dashboard'
-import { ClassDetail } from './class'
+import {
+  ClassUser,
+  ClassDetail,
+} from './class'
 import { Blog, BlogDetail } from './blog'
 
 export {
@@ -24,6 +27,7 @@ export {
   Package,
   Register,
   Recovery,
+  ClassUser,
   BlogDetail,
   Dashboards,
   ClassDetail,
