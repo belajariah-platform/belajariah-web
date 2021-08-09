@@ -32,3 +32,55 @@ export const SearchInput = styled.input`
         outline: none;
         }
     `}`
+
+export const IconImg = styled.img`
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px 0px 0px;`
+
+export const NoInvoice = styled.p`
+    color: #AFAFAF;
+    font-size: 12px;
+    margin: 0px 0px 10px 10px;`
+
+export const PaymentView = styled.div`
+    margin: 0px 0px 0px 0px;`
+
+export const DatePayment = styled.p`
+    color: #343434;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0px 0px 0px 0px;`
+
+export const LineVertical = styled.div`
+    height: 50px;
+    margin: 0px 10px;
+    border-left: 1.5px solid #AFAFAF;`
+
+export const TitlePayment = styled.p`
+    margin: 0px;
+    color: #AFAFAF;
+    font-size: 14px;
+    font-weight: 500;`
+
+export const TitleClassName = styled.p`
+    color: #AFAFAF;
+    font-size: 12px;
+    margin: 0px 0px 0px 10px;`
+
+export const containerNoTransact = styled.div`
+    padding: -15px;
+    margin: 0px 0px 0px 0px;`
+
+export const TxtNoTransact = styled.p`
+    color: #AFAFAF;
+    margin: 5px 0px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;`
+
+export const IconStyleNo = styled.img`
+    top: 20px;
+    width: 300px;
+    height: auto;
+    position: relative;`

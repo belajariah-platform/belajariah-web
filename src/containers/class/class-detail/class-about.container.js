@@ -257,8 +257,8 @@ const ClassAbout = () => {
       <ContainerPrice>
         <ViewPrice>
           <div>
-            <TxtOldPrice><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></TxtOldPrice>
-            <TxtNewPrice>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</TxtNewPrice>
+            {/* <TxtOldPrice><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></TxtOldPrice>
+            <TxtNewPrice>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</TxtNewPrice> */}
           </div>
           <div>
             <Buttons width={'240px'} height={'65px'} fontSize={'16px'} padding={'0% 10%'} backgroundColor={'#FF8E26'} onClick={HandleBtn}>BELAJAR SEKARANG</Buttons>

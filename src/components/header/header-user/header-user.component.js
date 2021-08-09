@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
 import {
+  Link,
   Grow,
   Paper,
   Badge,
@@ -8,19 +9,30 @@ import {
   Popper,
   MenuList,
   ClickAwayListener,
-  Link,
 } from '@material-ui/core'
 
 import {
+  IconImg,
   ViewInfo,
+  NoInvoice,
   ViewNotif,
+  IconStyleNo,
   SearchInput,
+  PaymentView,
+  DatePayment,
+  LineVertical,
+  TitlePayment,
+  TxtNoTransact,
+  TitleClassName,
+  containerNoTransact,
 } from './header-user.styled'
 import { Images } from '../../../assets'
+import { Buttons } from '../../../components'
 import styles from '../../../assets/css/navbar.module.css'
 
 const Header = (props) => {
   let islogin = true
+  let isTransact = false
   const [Changelogo, setChangeLogo] = useState(false)
   const [Changenavbar, setChangeNavbar] = useState(false)
 
@@ -65,10 +77,16 @@ const Header = (props) => {
   }
 
   const anchorRef = useRef(null)
+  const anchorRefPayment = useRef(null)
   const [open, setOpen] = useState(false)
+  const [openPayment, setOpenPayment] = useState(false)
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen)
+  }
+
+  const handleTogglePayment = () => {
+    setOpenPayment((prevOpenPayment) => !prevOpenPayment)
   }
 
   const handleClose = (event) => {
@@ -78,11 +96,34 @@ const Header = (props) => {
     setOpen(false)
   }
 
+  const handleClosePayment = (event) => {
+    if (anchorRefPayment.current && anchorRefPayment.current.contains(event.target)) {
+      return
+    }
+    setOpenPayment(false)
+  }
+
   const handleListKeyDown = (event) => {
     if (event.key === 'Tab') {
       event.preventDefault()
       setOpen(false)
     }
+  }
+
+  const handleListKeyDownPayment = (event) => {
+    if (event.key === 'Tab') {
+      event.preventDefault()
+      setOpenPayment(false)
+    }
+  }
+
+  const NoTransact = () => {
+    return (
+      <containerNoTransact>
+        <TxtNoTransact>Tidak ada pembayaran tersedia</TxtNoTransact>
+        <IconStyleNo src={Images.IconNoTransact} />
+      </containerNoTransact>
+    )
   }
 
   return (
@@ -155,14 +196,97 @@ const Header = (props) => {
               )}
             </Popper>
           </div>
+
           <ViewNotif>
             <Badge badgeContent={9} color='secondary'>
               <img src={Changelogo ? Images.IconShop : Images.IconShopWhite } width={20}
-                // ref={anchorRef}
-                // aria-controls={open ? 'menu-list-grow' : undefined}
-                // aria-haspopup='true'
-                // onClick={handleToggle}
+                ref={anchorRefPayment}
+                aria-controls={open ? 'menu-list-grow' : undefined}
+                aria-haspopup='true'
+                onClick={handleTogglePayment}
+                style={{ cursor: 'pointer' }}
               />
+              <Popper open={openPayment} anchorEl={anchorRefPayment.current} role={undefined} transition disablePortal>
+                {({ TransitionProps, placement }) => (
+                  <div>
+                    <img src={Images.IconTriangle} width={10} className={styles.IconTriangleNavPayment} />
+                    <Grow
+                      {...TransitionProps}
+                      style={{
+                        width: 320,
+                        opacity: 1,
+                        padding: 15,
+                        marginTop: 3,
+                        marginLeft: -120,
+                        backgroundColor: '#FFF',
+                        borderTopLeftRadius: 15,
+                        borderBottomLeftRadius: 15,
+                        borderBottomRightRadius: 15,
+                        transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}>
+                      <Paper>
+                        <ClickAwayListener onClickAway={handleClosePayment}>
+                          <MenuList style={{ padding: 0 }} autoFocusItem={openPayment} id='menu-list-grow' onKeyDown={handleListKeyDownPayment}>
+                            {isTransact ? (
+                              <div>
+                                <PaymentView>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                      <IconImg src={Images.IconPending} />
+                                      <TitlePayment>Menunggu</TitlePayment>
+                                    </div>
+                                    <DatePayment>12/04/2021 15:35</DatePayment>
+                                  </div>
+                                  <div style={{ display: 'flex', marginTop: 10 }}>
+                                    <LineVertical />
+                                    <div>
+                                      <TitleClassName>Belajar Al-Qur’an dengan metode yang mudah dan menyenangkan</TitleClassName>
+                                      <NoInvoice>INV-XXX000XX</NoInvoice>
+                                    </div>
+                                  </div>
+                                </PaymentView>
+                                <PaymentView>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                      <IconImg src={Images.IconComplete} />
+                                      <TitlePayment>Menunggu</TitlePayment>
+                                    </div>
+                                    <DatePayment>12/04/2021 15:35</DatePayment>
+                                  </div>
+                                  <div style={{ display: 'flex', marginTop: 10 }}>
+                                    <LineVertical />
+                                    <div>
+                                      <TitleClassName>Belajar Al-Qur’an dengan metode yang mudah dan menyenangkan</TitleClassName>
+                                      <NoInvoice>INV-XXX000XX</NoInvoice>
+                                    </div>
+                                  </div>
+                                </PaymentView>
+                                <PaymentView>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                      <IconImg src={Images.IconFailed} />
+                                      <TitlePayment>Menunggu</TitlePayment>
+                                    </div>
+                                    <DatePayment>12/04/2021 15:35</DatePayment>
+                                  </div>
+                                  <div style={{ display: 'flex', marginTop: 10 }}>
+                                    <LineVertical />
+                                    <div>
+                                      <TitleClassName>Belajar Al-Qur’an dengan metode yang mudah dan menyenangkan</TitleClassName>
+                                      <NoInvoice>INV-XXX000XX</NoInvoice>
+                                    </div>
+                                  </div>
+                                </PaymentView>
+                              </div>
+                            ) : ( <NoTransact/> )}
+                            
+
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  </div>
+                )}
+              </Popper>
             </Badge>
           </ViewNotif>
         </ViewInfo>}

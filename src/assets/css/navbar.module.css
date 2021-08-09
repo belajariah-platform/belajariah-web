@@ -63,3 +63,10 @@
     width: 25px;
     position: absolute;
 }
+
+.IconTriangleNavPayment {
+    top: 8px;
+    left: 45%;
+    width: 25px;
+    position: relative;
+}

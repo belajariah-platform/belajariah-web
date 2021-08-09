@@ -103,6 +103,7 @@ export default {
   BgTransactDetail: require('./BgTransactDetail.png'),
   BgTransactMethod: require('./BgTransactMethod.png'),
   ILTransactVoucher: require('./ILTransactVoucher.svg'),
+
   //Class About Image
   IconClose: require('./IconClose.svg'),
   IconMaterial: require('./IconMaterial.svg'),
@@ -120,4 +121,10 @@ export default {
 
   //Class Rating Image
   ImgReviewer: require('./ImgReviewer.png'),
+
+  //Transaction User Image
+  IconFailed: require('./IconFailed.svg'),
+  IconPending: require('./IconPending.svg'),
+  IconComplete: require('./IconComplete.svg'),
+  IconNoTransact: require('./IconNoTransact.svg'),
 }

@@ -20,38 +20,38 @@ export const Containerfooter = styled.div`
     `}`
 
 export const ViewFooter = styled.div`
-margin: 0px;
-z-index: 1000;
-padding: 0% 10%;`
+    margin: 0px;
+    z-index: 1000;
+    padding: 0% 10%;`
 
 export const TopFooter = styled.div`
-display: flex;
-margin: 0px 0px 0px 0px;
-justify-content: space-between;
-${
-css`
-@media (max-width: 768px) {
-    display: contents;
-    }
-`}`
+    display: flex;
+    margin: 0px 0px 0px 0px;
+    justify-content: space-between;
+    ${
+    css`
+    @media (max-width: 768px) {
+        display: contents;
+        }
+    `}`
 
 export const FooterPage = styled.div`
-padding: 0px 0px 0px 0px;
-${
-css`
-@media (max-width: 768px) {
-    margin: 30px 0px 11px 0px;
-    }
-`}`
+    padding: 0px 0px 0px 0px;
+    ${
+    css`
+    @media (max-width: 768px) {
+        margin: 30px 0px 11px 0px;
+        }
+    `}`
 
 export const FooterInfo = styled.div`
-padding: 0px 0px 0px 0px;`
+    padding: 0px 0px 0px 0px;`
 
 export const FooterContact = styled.div`
-padding: 0px 0px 0px 0px;
-${
-css`
-@media (max-width: 768px) {
-    margin: 35px 0px 0px 0px;
-    }
-`}`
+    padding: 0px 0px 0px 0px;
+    ${
+    css`
+    @media (max-width: 768px) {
+        margin: 35px 0px 0px 0px;
+        }
+    `}`

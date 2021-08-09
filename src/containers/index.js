@@ -5,6 +5,7 @@ import {
   Recovery,
 } from './auth'
 import {
+  TransactionUser,
   TransactionMethod,
   TransactionDetail,
   TransactionUpload,
@@ -27,6 +28,7 @@ export {
   BlogDetail,
   Dashboards,
   ClassDetail,
+  TransactionUser,
   TransactionMethod,
   TransactionDetail,
   TransactionUpload,

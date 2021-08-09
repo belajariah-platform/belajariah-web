@@ -71,7 +71,7 @@ import {
 import styles from '../../assets/css/dashboards.module.css'
 
 const Dashboards = () => {
-  const islogin = true
+  const islogin = false
   const router = useRouter()
   const [selectedTab, setSelectedTab] = useState(0)
 
@@ -317,8 +317,8 @@ const Dashboards = () => {
                             <div><img src={Images.IconStar} width={100} /></div>
                             <div className={styles.LineClass}><hr></hr></div>
                             <ViewPrice>
-                              <div className={styles.PriceClassOld}><p><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></p></div>
-                              <div className={styles.PriceClassNew}><p>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</p></div>
+                              {/* <div className={styles.PriceClassOld}><p><s>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Package)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Package)}</s></p></div>
+                              <div className={styles.PriceClassNew}><p>Rp{FormatRupiah(statePackage.length != 0 && statePackage[0].Price_Discount)} - Rp{FormatRupiah(statePackage.length != 0 && statePackage[2].Price_Discount)}</p></div> */}
                               <div className={styles.ButtonClass}>
                                 <button onClick={HandleBtn} style={{ backgroundColor:'#65C6E6', cursor: 'pointer' }}>Beli Kelas Sekarang</button>
                               </div>
